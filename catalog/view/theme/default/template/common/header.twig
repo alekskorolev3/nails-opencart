@@ -23,6 +23,11 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+
+{# НАША ГЛАВНАЯ CSS #}
+<link href="catalog/view/theme/default/stylesheet/nail_main/style.css" rel="stylesheet">
+<link href="catalog/view/theme/default/stylesheet/nail_contact/contact.css" rel="stylesheet">
+
 {% for style in styles %}
 <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
 {% endfor %}
@@ -38,7 +43,7 @@
 {% endfor %}
 </head>
 <body>
-<nav id="top">
+{# <nav id="top">
   <div class="container">{{ currency }}
     {{ language }}
     <div id="top-links" class="nav pull-right">
@@ -75,8 +80,42 @@
       </div>
       <div class="col-sm-5">{{ search }}</div>
       <div class="col-sm-3">{{ cart }}</div>
-      <div>TESTTESTTEST</div>
     </div>
   </div>
-</header>
+</header> #}
+ <header class="header">
+    <div class="header-burger">
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+    <div class="header-logo">
+      <div class="logo-container">
+        <a href="/">
+          <img src="./img/GRANI.svg" alt="GRANI">
+        </a>
+      </div>
+    </div>
+    <nav class="header-navbar">
+      <ul class="header-navbar__list">
+        <li class="phone-header">
+          <a>
+            <img src="./img/phone.svg" alt="phone">
+          </a>
+        </li>
+        <li>
+          <a href="/personalArea.html">
+            <img src="./img/default_avatar.svg" alt="default-avatar">
+          </a>
+        </li>
+        <li>
+          <a href="/basket.html">
+            <img src="./img/basket_icon.svg" alt="lock">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 {{ menu }}
