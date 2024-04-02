@@ -2,3 +2,5 @@
 /system/
 /admin/
 config.php
+index.php
+php.ini
