@@ -1,0 +1,151 @@
+.main-contact {
+    padding: 47px 68px 170px;
+    width: 100%;
+    max-width: 1512px;
+}
+
+.contact-title {
+    font-family: jsMath-cmbx10, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 53px;
+}
+.contact-body {
+    height: 283px;
+}
+.contact-body__title {
+    font-family: LT Superior, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+
+}
+.contact-body-text > div,
+.contact-body-text span,
+.contact-body__info span,
+.contact-bottom span {
+    font-family: LT Superior, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0.01em;
+}
+
+.contact-body__info ul,
+.contact-body-text ul,
+.contact-bottom ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact-body-text li {
+    display: flex;
+    width: 140px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-body__info li {
+    display: flex;
+    width: 100%;
+    max-width: 518px;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.contact-body-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 5px;
+}
+
+.contact-body__info li span:nth-child(2) {
+    text-align: right;
+}
+
+.contact-body__info li span:first-child {
+    min-width: fit-content;
+}
+.contact-bottom li{
+    width: 100%;
+    max-width: 378px;
+    display: flex;
+    justify-content: space-between;
+}
+.contact-bottom__title {
+    font-family: LT Superior, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    margin-bottom: 13px;
+}
+
+.contact-bottom .link:nth-child(7){
+    padding-top: 12px;
+}
+
+.contact-bottom .link {
+    width: 314px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+}
+
+.contact-bottom .link:last-child {
+    margin-bottom: unset;
+}
+
+.contact-bottom .link img {
+    max-width: 24.5px;
+    min-width: 24.5px;
+    height: 24.5px;
+}
+
+.contact-bottom .link span {
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20.57px;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .main-contact {
+        padding: 45px 25px 120px;
+    }
+
+  .contact-title {
+    margin-bottom: 31px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+    .main-contact {
+        padding: 10.25px 18px 110px;
+    }
+
+    .contact-title {
+        margin-bottom: 23px;
+    }
+
+    .contact-bottom__title {
+        padding-top: 36px;
+    }
+
+    .contact-body {
+        height: unset;
+    }
+
+    .contact-body-text>div {
+      line-height: 20px;
+    }
+}
+
+

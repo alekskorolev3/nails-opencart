@@ -1,0 +1,9 @@
+{% if categories %}
+<aside class="modal-list">
+    <ul>
+    {% for category in categories %}
+      <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+    {% endfor %}
+    </ul>
+</aside>
+{% endif %}

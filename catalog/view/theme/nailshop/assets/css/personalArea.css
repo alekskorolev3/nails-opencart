@@ -1,0 +1,219 @@
+.person-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 70px 20px;
+  gap: 47px;
+  align-self: stretch;
+  max-width: 1520px;
+  margin: 0 auto;
+  min-width: 1200px;
+}
+
+.person {
+  display: flex;
+  gap: 50px;
+}
+
+.person-data {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.person-data__name {
+  font-weight: bolder;
+  font-size: 1.56em;
+}
+
+.person-data__email {
+  font-size: 1.3em;
+}
+
+.person-links {
+  display: flex;
+  gap: 14px;
+}
+
+.person-link {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  padding: 10px 14px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+
+.person-link__img {
+  width: 1em;
+  height: 1em;
+}
+
+.person-link__img img {
+  width: 100%;
+  height: auto;
+}
+
+.person-link__title {
+}
+
+.person-forms {
+  display: flex;
+  gap: 60px;
+}
+
+.person-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1 0 0;
+}
+
+.person-from__title {
+  margin-bottom: 4px;
+  font-size: 1.375em;
+}
+
+.person-form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.person-form > label > span {
+  font-size: 1.12em;
+}
+
+.person-form input[type="text"],
+.person-form input[type="password"],
+.person-form input[type="email"],
+.person-form input[type="date"] {
+  width: 100%;
+  height: 37px;
+  padding: 0 10px;
+  border-radius: 7px;
+  border: 1px solid black;
+  max-width: 380px;
+}
+
+.person-form > label > div {
+  display: flex;
+  align-items: center;
+}
+
+.person-form > label > div > span {
+  margin-right: 10px;
+}
+
+.person-form > label > div > input {
+  margin-right: 6px;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.person-form > button {
+  margin-top: 4px;
+  background-color: #0761E8;
+  color: #fff;
+  border-radius: 7px;
+  padding: 10px 14px;
+  align-self: stretch;
+  max-width: 380px;
+}
+
+@media screen and (max-width: 1200px) {
+  .person-wrapper {
+    min-width: unset!important;
+    margin: unset!important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .person {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+
+  .person-wrapper {
+    padding: 0 0 20px;
+    gap: 62px;
+    min-width: unset!important;
+    margin: unset!important;
+  }
+
+  .person {
+    gap: 0;
+    position: relative;
+  }
+
+  .person-data {
+    background-color: black;
+    color: white;
+    align-self: stretch;
+    padding: 23px 16px 63px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .person-links {
+    position: absolute;
+    top: 72.5%;
+    z-index: 2;
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .person-link {
+    flex: 1 0 0;
+    padding: 14px;
+  }
+
+  .person-forms {
+    flex-direction: column;
+    padding: 0px 16px 16px;
+    gap: 24px;
+  }
+
+  .person-form:last-child {
+    padding-top: 24px;
+    border-top: 1px solid #D9D9D9;
+  }
+
+  .person-data__name {
+    font-size: 1.1em;
+  }
+
+  .person-data__email {
+    font-size: 1em;
+  }
+
+  .person-link__title {
+    font-size: 0.875em;
+  }
+
+  .person-from__title {
+    font-size: 1.125em;
+  }
+
+  .person-form > label > span {
+    font-size: 0.875em;
+  }
+
+  .person-form input {
+    font-size: 0.9em;
+  }
+
+  .person-form > label > div > span {
+    font-size: 0.875em;
+  }
+
+  .person-form > button {
+    font-size: 0.81em;
+  }
+
+  
+}

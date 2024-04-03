@@ -1,0 +1,187 @@
+<!doctype html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <base href="{{ base }}" />
+  {% if description %}
+  <meta name="description" content="{{ description }}" />
+  {% endif %}
+  {% if keywords %}
+  <meta name="keywords" content="{{ keywords }}" />
+  {% endif %}
+
+  {% for style in styles %}
+  <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+  {% endfor %}
+  {% for script in scripts %}
+  <script src="{{ script }}" type="text/javascript"></script>
+  {% endfor %}
+
+
+
+  <link rel="stylesheet" href="catalog/view/theme/nailshop/assets/css/style.css">
+
+  <!-- Fonts -->
+  <!-- jacques -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap" rel="stylesheet">
+
+  <!-- INTER -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- ALMARAI -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  {% for link in links %}
+  <link href="{{ link.href }}" rel="{{ link.rel }}" />
+  {% endfor %}
+  {% for analytic in analytics %}
+  {{ analytic }}
+  {% endfor %}
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="modal-wrapper"></div>
+    <div class="modal">
+        {{menu}}
+        <footer class="footer">
+            <div class="footer_inner_container">
+              <div class="footer-main">
+                <nav class="footer-leftside">
+                  <div class="leftside-part">
+                    <div class="part-phone">
+                      <div class="navbar-phone">
+                        <a href="tel:+375292912432">+375 29 291 24 32</a>
+                      </div>
+                      <div class="phone-description">если у Вас возникли вопросы, пожалуйста,<br> свяжитесь с нами:</div>
+                    </div>
+                    <ul class="navbar-socials">
+                      <span>
+                        <li class="social">
+                          <a href="#">
+                                  <span>
+                                      <img src="catalog/view/theme/nailshop/assets/img/telegram-black.svg" alt="telegram">
+                                  </span>
+                            <span>Telegram</span>
+                          </a>
+                        </li>
+                        <li class="social">
+                          <a href="#">
+                                  <span>
+                                      <img src="catalog/view/theme/nailshop/assets/img/whatsaspp-black.svg" alt="whatsaspp">
+                                  </span>
+                            <span>WhatsApp</span>
+                          </a>
+                        </li>
+                      </span>
+                      <span>
+                        <li class="social">
+                          <a href="#">
+                                  <span>
+                                      <img src="catalog/view/theme/nailshop/assets/img/viber-black.svg" alt="viber">
+                                  </span>
+                            <span>Viber</span>
+                          </a>
+                        </li>
+                        <li class="social">
+                          <a href="#">
+                                  <span>
+                                      <img src="catalog/view/theme/nailshop/assets/img/mail-black.svg" alt="mail">
+                                  </span>
+                            <span>Nick-name98@mail.ru</span>
+                          </a>
+                        </li>
+                      </span>
+                    </ul>
+                  </div>
+                  <div class="leftside-part">
+                    <div class="addone-info">
+                      <h3>Следите за нами в соцсетях</h3>
+                    </div>
+                    <div class="social">
+                      <a href="#">
+                        <img src="catalog/view/theme/nailshop/assets/img/instagram-black.svg" alt="instagram">
+                        <span>Вконтакте</span>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+            </div>
+          </footer>
+    </div>
+    <div class="modal-phone">
+      <div class="modal-phone-inner">
+        <div class="modal-phone__nubmer">
+          <a href="tel:+333333333">+375292912432</a>
+        </div>
+        <div class="modal-phone-links">
+          <ul>
+            <li>
+              <a href="#">
+                <span>
+                  <img src="catalog/view/theme/nailshop/assets/img/newimg/telegram.png" alt="">
+                </span>
+                <span>Telegram</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>
+                  <img src="catalog/view/theme/nailshop/assets/img/newimg/whatsapp.png" alt="">
+                </span>
+                <span>WhatsApp</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>
+                  <img src="catalog/view/theme/nailshop/assets/img/newimg/viber.png" alt="">
+                </span>
+                <span>Viber</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  <header class="header">
+    <div class="header-burger">
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+    <div class="header-logo">
+      <div class="logo-container">
+        <a href="{{base}}">
+          <img src="catalog/view/theme/nailshop/assets/img/GRANI.svg" alt="GRANI">
+        </a>
+      </div>
+    </div>
+    <nav class="header-navbar">
+      <ul class="header-navbar__list">
+        <li class="phone-header">
+          <a>
+            <img src="catalog/view/theme/nailshop/assets/img/phone.svg" alt="phone">
+          </a>
+        </li>
+        <li>
+          <a href="/personalArea.html">
+            <img src="catalog/view/theme/nailshop/assets/img/default_avatar.svg" alt="default-avatar">
+          </a>
+        </li>
+        <li>
+          <a href="/basket.html">
+            <img src="catalog/view/theme/nailshop/assets/img/basket_icon.svg" alt="lock">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
