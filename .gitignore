@@ -1,6 +1,6 @@
-/install/
 /system/
 /admin/
 config.php
 index.php
 php.ini
+/.idea
