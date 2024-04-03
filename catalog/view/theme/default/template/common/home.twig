@@ -1,5 +1,6 @@
 {{ header }}
-<div id="common-home" class="container">
+
+{# <div id="common-home" class="container">
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
@@ -10,5 +11,470 @@
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
     {{ column_right }}</div>
-</div>
+</div> #}
+  <main class="main" id="common-home">
+    <figure class="main-img">
+      <img src="/nails-opencart/image/nail_image/hero4.png" alt="mainIMG">
+    </figure>
+    <div class="main-slider">
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">базы</figcaption>
+      </figure>
+
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">топы</figcaption>
+      </figure>
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">гели</figcaption>
+      </figure>
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">жидкие гели</figcaption>
+      </figure>
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">гель-лаки</figcaption>
+      </figure>
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">сменные файлы</figcaption>
+      </figure>
+
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">подготовка НП</figcaption>
+      </figure>
+
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">дизайны</figcaption>
+      </figure>
+
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">новинки</figcaption>
+      </figure>
+
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">акции</figcaption>
+      </figure>
+
+      <figure class="slider-elem">
+        <a href="{{ category }}">
+          <div class="slider-elem__container">
+            <div class="slider-elem__wrapper">
+              <img src="/nails-opencart/image/nail_image/img1.svg" alt="img">
+            </div>
+          </div>
+        </a>
+        <figcaption class="slider-elem__subtitle">доставка и возврат</figcaption>
+      </figure>
+    </div>
+    <section class="main-section">
+      <div class="section-title">
+        <h2>новинки</h2>
+
+        <div class="arrow-container">
+          <img id="left" src="/nails-opencart/image/nail_image/arrow-left2.svg" class="wrapper-arrow-icon"/>
+          <img id="right" src="/nails-opencart/image/nail_image/arrow-right.svg" class="wrapper-arrow-icon"/>
+        </div>
+      </div>
+
+      <div class="wrapper">
+
+        <ul class="carousel">
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card2.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card3.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card3.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база объём 15 мл ультраплотная
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card4.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card2.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card3.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card3.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база объём 15 мл ультраплотная
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+          <div class="card section-card" onclick="location.href='product.html';" >
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/card4.png" alt="card1">
+            </div>
+            <div class="card-description">
+              <div class="card-description-inner">
+
+                <div class="card-description__subtitle">
+                  Камуфлирующая база
+                </div>
+
+                <div class="card-description__title">
+                  ART BASE LIGHT GREEN
+                </div>
+              </div>
+              <div class="card-price-container">
+                <div class="card-description__price">
+                  750.00 руб.
+                </div>
+
+                <button class="card-btns__more">
+                  В корзину
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </section>
+    <section class="main-section" id="promotion">
+      <div class="section-title">
+        <h2>акции</h2>
+
+        <div class="arrow-container">
+          <img id="left-promotion" src="/nails-opencart/image/nail_image/arrow-left2.svg" class="wrapper-arrow-icon-promotion"/>
+          <img id="right-promotion" src="/nails-opencart/image/nail_image/arrow-right.svg" class="wrapper-arrow-icon-promotion"/>
+        </div>
+      </div>
+      <div class="wrapper wrapper-promotion">
+        <ul class="carousel carousel-promotion">
+          <div class="card-promotion section-card" onclick="location.href='product.html';">
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/newimg/card-big-1.png" alt="img2">
+            </div>
+            <div class="card-description">
+              <div class="card-description-title-container">
+                <div class="card-description__title">
+                  BRILLIANT TOP -10%
+                </div>
+                <div class="card-description__date">
+                  с 10-20 марта
+                </div>
+              </div>
+              <div class="card-description__subtitle">
+                получи скидку 10% на BRILLIANT TOP, если у тебя день рождения
+              </div>
+            </div>
+          </div>
+          <div class="card-promotion section-card">
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/promo_card2.png" alt="img2">
+            </div>
+            <div class="card-description">
+              <div class="card-description-title-container">
+                <div class="card-description__title">
+                  VELVET TOP FREE
+                </div>
+                <div class="card-description__date">
+                  с 10-20 марта
+                </div>
+              </div>
+              <div class="card-description__subtitle">
+                при покупке любых 4-х баз VELVET TOP в подарок
+              </div>
+            </div>
+          </div>
+          <div class="card-promotion section-card">
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/promo_card2.png" alt="img2">
+            </div>
+            <div class="card-description">
+              <div class="card-description-title-container">
+                <div class="card-description__title">
+                  АКЦИЯ - 25% В ЧЕСТЬ ПРАЗДНИКА
+                </div>
+                <div class="card-description__date">
+                  C 7 – 15 марта
+                </div>
+              </div>
+              <div class="card-description__subtitle">
+                Совершай покупки от 30 рублей и получи
+                скидку на весь ассортимент
+              </div>
+            </div>
+          </div>
+          <div class="card-promotion section-card">
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/promo_card2.png" alt="img2">
+            </div>
+            <div class="card-description">
+              <div class="card-description-title-container">
+                <div class="card-description__title">
+                  АКЦИЯ - 25% В ЧЕСТЬ ПРАЗДНИКА
+                </div>
+                <div class="card-description__date">
+                  C 7 – 15 марта
+                </div>
+              </div>
+              <div class="card-description__subtitle">
+                Совершай покупки от 30 рублей и получи
+                скидку на весь ассортимент
+              </div>
+            </div>
+          </div>
+          <div class="card-promotion section-card">
+            <div class="card-img">
+              <img src="/nails-opencart/image/nail_image/promo_card2.png" alt="img2">
+            </div>
+            <div class="card-description">
+              <div class="card-description-title-container">
+                <div class="card-description__title">
+                  АКЦИЯ - 25% В ЧЕСТЬ ПРАЗДНИКА
+                </div>
+                <div class="card-description__date">
+                  C 7 – 15 марта
+                </div>
+              </div>
+              <div class="card-description__subtitle">
+                Совершай покупки от 30 рублей и получи
+                скидку на весь ассортимент
+              </div>
+            </div>
+          </div>
+
+        </ul>
+      </div>
+
+    </section>
+  </main>
 {{ footer }}

@@ -1,5 +1,5 @@
 {{ header }}
-<div id="product-category" class="container">
+{# <div id="product-category" class="container">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -130,5 +130,465 @@
       {% endif %}
       {{ content_bottom }}</div>
     {{ column_right }}</div>
+</div> #}
+<div class="catalog-main-picture">
+  <img src="./img/catalog.png" alt="catalog">
+  <span class="main-picture-text">RUBBER BASE</span>
+  <button class="main-picture-button" onclick="location.href='index.html';">
+    <img src="./img/arrow-left-black.svg" alt="">
+    <span style="color: black;">вернуться</span>
+  </button>
+</div>
+<div class="catalog-main-slider main-slider">
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">базы</figcaption>
+  </figure>
+
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">топы</figcaption>
+  </figure>
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">гели</figcaption>
+  </figure>
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">жидкие гели</figcaption>
+  </figure>
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">гель-лаки</figcaption>
+  </figure>
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">сменные файлы</figcaption>
+  </figure>
+
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">подготовка НП</figcaption>
+  </figure>
+
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">дизайны</figcaption>
+  </figure>
+
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">новинки</figcaption>
+  </figure>
+
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">акции</figcaption>
+  </figure>
+
+  <figure class="slider-elem">
+    <a href="/catalog.html">
+      <div class="slider-elem__container">
+        <div class="slider-elem__wrapper">
+          <img src="./img/img1.svg" alt="img">
+        </div>
+      </div>
+    </a>
+    <figcaption class="slider-elem__subtitle">доставка и возврат</figcaption>
+  </figure>
+</div>
+<div class="catalog-wrapper">
+  <div class="catalog-wrapper__title">Всего 50 наименований</div>
+  <div class="catalog">
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          КАМУФЛИРУЮЩАЯ БАЗА
+        </div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">КАМУФЛИРУЮЩАЯ БАЗА</div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          БАЗОВОЕ ПОКРЫТИЕ ДЛЯ НОГТЕЙ ОБЪЕМ 50 МЛ
+        </div>
+        <div class="catalog-card-description__title">rubber base</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">1750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          КАМУФЛИРУЮЩАЯ БАЗА
+        </div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">КАМУФЛИРУЮЩАЯ БАЗА</div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          КАМУФЛИРУЮЩАЯ БАЗА ОБЪЕМ 15 МЛ УЛЬТАПЛОТНАЯ
+        </div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">КАМУФЛИРУЮЩАЯ БАЗА</div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          КАМУФЛИРУЮЩАЯ БАЗА
+        </div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">КАМУФЛИРУЮЩАЯ БАЗА</div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          КАМУФЛИРУЮЩАЯ БАЗА ОБЪЕМ 15 МЛ УЛЬТАПЛОТНАЯ
+        </div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">КАМУФЛИРУЮЩАЯ БАЗА</div>
+        <div class="catalog-card-description__title">ART BASE &nbsp;LIGHT GREEN</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">БАЗОВОЕ ПОКРЫТИЕ ДЛЯ НОГТЕЙ ОБЪЕМ 50 МЛ</div>
+        <div class="catalog-card-description__title">RUBBER BASE</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">1750.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          Сменные файлы для педикюра <br>
+          Размер M 25мм
+        </div>
+        <div class="catalog-card-description__title">GLIDE METAL BASE L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">Сменные файлы размер 180х18мм</div>
+        <div class="catalog-card-description__title">GLIDE FILES L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          Сменные файлы для педикюра <br>
+          Размер M 25мм
+        </div>
+        <div class="catalog-card-description__title">GLIDE METAL BASE L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">Сменные файлы размер 180х18мм</div>
+        <div class="catalog-card-description__title">GLIDE FILES L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          Сменные файлы для педикюра <br>
+          Размер M 25мм
+        </div>
+        <div class="catalog-card-description__title">GLIDE METAL BASE L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">Сменные файлы размер 180х18мм</div>
+        <div class="catalog-card-description__title">GLIDE FILES L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          Сменные файлы для педикюра <br>
+          Размер M 25мм
+        </div>
+        <div class="catalog-card-description__title">GLIDE METAL BASE L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">Сменные файлы размер 180х18мм</div>
+        <div class="catalog-card-description__title">GLIDE FILES L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          Сменные файлы для педикюра <br>
+          Размер M 25мм
+        </div>
+        <div class="catalog-card-description__title">GLIDE METAL BASE L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">Сменные файлы размер 180х18мм</div>
+        <div class="catalog-card-description__title">GLIDE FILES L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-card">
+      <div class="catalog-card__img">
+        <img src="./img/card1.svg" alt="card">
+      </div>
+      <div class="catalog-card-description">
+        <div class="catalog-card-description__category">
+          Сменные файлы для педикюра <br>
+          Размер M 25мм
+        </div>
+        <div class="catalog-card-description__title">GLIDE METAL BASE L</div>
+        <div class="catalog-card-description-price">
+          <div class="catalog-card-description-price__value">550.00 руб</div>
+          <button class="catalog-card-description-price__button">В корзину</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {{ footer }} 

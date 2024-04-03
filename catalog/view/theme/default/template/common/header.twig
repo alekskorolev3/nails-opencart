@@ -18,19 +18,41 @@
 <meta name="keywords" content="{{ keywords }}" />
 {% endif %}
 <script src="catalog/view/javascript/jquery/jquery-3.7.0.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+{# <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" /> #}
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+{# <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> #}
+{# <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> #}
+{# <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> #}
+
+
+ <!-- Fonts -->
+  <!-- jacques -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap" rel="stylesheet">
+
+<!-- INTER -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- ALMARAI -->
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 {# НАША ГЛАВНАЯ CSS #}
 <link href="catalog/view/theme/default/stylesheet/nail_main/style.css" rel="stylesheet">
 <link href="catalog/view/theme/default/stylesheet/nail_contact/contact.css" rel="stylesheet">
+<script src="catalog/view/javascript/nail.js" type="text/javascript"></script>
 
-{% for style in styles %}
+
+
+
+
+
+
+
+
+{# {% for style in styles %}
 <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
-{% endfor %}
+{% endfor %} #}
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
@@ -83,6 +105,124 @@
     </div>
   </div>
 </header> #}
+<div class="modal-wrapper"></div>
+<div class="modal">
+    <aside class="modal-list">
+        <ul>
+            <li><a href="{{ category.href }}">Базы</a></li>
+            <li><a href="{{ category }}">Топы</a></li>
+            <li><a href="{{ category }}">Гели</a></li>
+            <li><a href="{{ category }}">Жидкие гели</a></li>
+            <li><a href="{{ category }}">Гель-лаки</a></li>
+            <li><a href="{{ category }}">Сменные файлы</a></li>
+            <li><a href="{{ category }}">Подготовка НП</a></li>
+            <li><a href="{{ category }}">Дизайны</a></li>
+            <li><a href="{{ category }}">Новинки</a></li>
+            <li><a href="{{ category }}">Акции</a></li>
+            <li><a href="delivery.html">Доставка и возврат</a></li>
+            <li><a href="{{ contact }}">Контакты</a></li>
+        </ul>
+    </aside>
+    <footer class="footer">
+        <div class="footer_inner_container">
+          <div class="footer-main">
+            <nav class="footer-leftside">
+              <div class="leftside-part">
+                <div class="part-phone">
+                  <div class="navbar-phone">
+                    <a href="tel:+375292912432">+375 29 291 24 32</a>
+                  </div>
+                  <div class="phone-description">если у Вас возникли вопросы, пожалуйста,<br> свяжитесь с нами:</div>
+                </div>
+                <ul class="navbar-socials">
+                  <span>
+                    <li class="social">
+                      <a href="#">
+                              <span>
+                                  <img src="/nails-opencart/image/nail_image/telegram-black.svg" alt="telegram">
+                              </span>
+                        <span>Telegram</span>
+                      </a>
+                    </li>
+                    <li class="social">
+                      <a href="#">
+                              <span>
+                                  <img src="/nails-opencart/image/nail_image/whatsaspp-black.svg" alt="whatsaspp">
+                              </span>
+                        <span>WhatsApp</span>
+                      </a>
+                    </li>
+                  </span>
+                  <span>
+                    <li class="social">
+                      <a href="#">
+                              <span>
+                                  <img src="/nails-opencart/image/nail_image/viber-black.svg" alt="viber">
+                              </span>
+                        <span>Viber</span>
+                      </a>
+                    </li>
+                    <li class="social">
+                      <a href="#">
+                              <span>
+                                  <img src="/nails-opencart/image/nail_image/mail-black.svg" alt="mail">
+                              </span>
+                        <span>Nick-name98@mail.ru</span>
+                      </a>
+                    </li>
+                  </span>
+                </ul>
+              </div>
+              <div class="leftside-part">
+                <div class="addone-info">
+                  <h3>Следите за нами в соцсетях</h3>
+                </div>
+                <div class="social">
+                  <a href="#">
+                    <img src="/nails-opencart/image/nail_image/instagram-black.svg" alt="instagram">
+                    <span>Вконтакте</span>
+                  </a>
+                </div>
+              </div>
+            </nav>
+        </div>
+      </footer>
+</div>
+<div class="modal-phone">
+  <div class="modal-phone-inner">
+    <div class="modal-phone__nubmer">
+      <a href="tel:+333333333">+375292912432</a>
+    </div>
+    <div class="modal-phone-links">
+      <ul>
+        <li>
+          <a href="#">
+            <span>
+              <img src="/nails-opencart/image/nail_image/newimg/telegram.png" alt="">
+            </span>
+            <span>Telegram</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>
+              <img src="/nails-opencart/image/nail_image/newimg/whatsapp.png" alt="">
+            </span>
+            <span>WhatsApp</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>
+              <img src="/nails-opencart/image/nail_image/newimg/viber.png" alt="">
+            </span>
+            <span>Viber</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
  <header class="header">
     <div class="header-burger">
       <div class="burger">
@@ -93,8 +233,8 @@
     </div>
     <div class="header-logo">
       <div class="logo-container">
-        <a href="/">
-          <img src="./img/GRANI.svg" alt="GRANI">
+        <a href="{{ home }}">
+          <img src="/nails-opencart/image/nail_image/GRANI.svg" alt="GRANI">
         </a>
       </div>
     </div>
@@ -102,20 +242,19 @@
       <ul class="header-navbar__list">
         <li class="phone-header">
           <a>
-            <img src="./img/phone.svg" alt="phone">
+            <img src="/nails-opencart/image/nail_image/phone.svg" alt="phone">
           </a>
         </li>
         <li>
           <a href="/personalArea.html">
-            <img src="./img/default_avatar.svg" alt="default-avatar">
+            <img src="/nails-opencart/image/nail_image/default_avatar.svg" alt="default-avatar">
           </a>
         </li>
         <li>
           <a href="/basket.html">
-            <img src="./img/basket_icon.svg" alt="lock">
+            <img src="/nails-opencart/image/nail_image/basket_icon.svg" alt="lock">
           </a>
         </li>
       </ul>
     </nav>
   </header>
-{{ menu }}
