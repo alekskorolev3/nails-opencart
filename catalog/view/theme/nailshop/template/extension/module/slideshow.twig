@@ -1,0 +1,36 @@
+{% if banners %}
+<section class="main-section" id="promotion">
+    <div class="section-title">
+      <h2>акции</h2>
+      <div class="arrow-container">
+        <img id="left-promotion" src="catalog/view/theme/nailshop/assets/img/arrow-left2.svg" class="wrapper-arrow-icon-promotion"/>
+        <img id="right-promotion" src="catalog/view/theme/nailshop/assets/img/arrow-right.svg" class="wrapper-arrow-icon-promotion"/>
+      </div>
+    </div>
+    <div class="wrapper-promotion">
+      <ul class="carousel carousel-promotion">
+        {% for banner in banners %}
+          <div class="card-promotion section-card">
+            <div class="card-img">
+              <img src="{{banner.image}}" alt="img2">
+            </div>
+            <div class="card-description">
+              <div class="card-description-title-container">
+                <div class="card-description__title">
+                  BRILLIANT TOP -10%
+                </div>
+                <div class="card-description__date">
+                  с 10-20 марта
+                </div>
+              </div>
+              <div class="card-description__subtitle">
+                получи скидку 10% на BRILLIANT TOP, если у тебя день рождения
+                </div>
+            </div>
+          </div>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endif %}
+

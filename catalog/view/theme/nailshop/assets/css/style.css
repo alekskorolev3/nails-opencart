@@ -733,6 +733,10 @@ i:last-child {
   font-family: Involve, serif !important;
 }
 
+.card-description__title {
+  text-transform: uppercase;
+}
+
 
 
 

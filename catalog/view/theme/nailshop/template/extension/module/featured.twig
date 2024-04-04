@@ -1,0 +1,44 @@
+
+{% if products %}
+<section class="main-section">
+  <div class="section-title">
+    <h2>{{heading_title}}</h2>
+    <div class="arrow-container">
+      <img id="left" src="catalog/view/theme/nailshop/assets/img/arrow-left2.svg" class="wrapper-arrow-icon"/>
+      <img id="right" src="catalog/view/theme/nailshop/assets/img/arrow-right.svg" class="wrapper-arrow-icon"/>
+    </div>
+  </div>
+  <div class="wrapper">
+    <ul class="carousel">
+    {% for product in products %}
+       <div class="card section-card">
+        <a class="card-img" href="{{product.href}}">
+          <img src="{{product.thumb}}" alt="{{product.name}}">
+        </a>
+        <div class="card-description">
+          <div class="card-description-inner">
+            <div class="card-description__subtitle">
+              {{product.description}}
+            </div>
+
+            <div class="card-description__title">
+              {{product.name}}
+            </div>
+          </div>
+          <div class="card-price-container">
+            <div class="card-description__price">
+              {{product.price}}
+            </div>
+            <button class="card-btns__more">
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+
