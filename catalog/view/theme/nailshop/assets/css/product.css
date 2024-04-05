@@ -135,7 +135,7 @@
   height: 44px;
   padding: 3px;
 }
-
+.product-card__delivery li,
 .product-card__delivery li span {
   font-family: LT Superior, sans-serif;
   font-size: 14px;
@@ -401,6 +401,7 @@
   }
 
   .product-card__manager span,
+  .product-card__delivery li,
   .product-card__delivery li span {
     font-size: 17px;
     font-weight: 600;
@@ -609,6 +610,7 @@
   }
 
   .product-card__manager span,
+  .product-card__delivery li,
   .product-card__delivery li span {
     font-size: 14px;
     font-weight: 600;
