@@ -1,3 +1,30 @@
+.row {
+  margin: 40px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination li {
+  padding: 8px 16px;
+  transition: 0.3s ease all;
+}
+
+.pagination li.active {
+  background-color: #222222;
+  color: white;
+}
+
+.pagination li:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination li a{
+  color: #000000;
+}
+
 .catalog {
   display: grid;
   /* grid-template-columns: 347px 416px 347px 280px; */

@@ -1,0 +1,38 @@
+{{header}}
+<main class="main">
+    <div class="catalog-main-picture">
+      {{content_top}}
+       <span class="main-picture-text">{{ heading_title }}</span>      
+      <a href="{{ breadcrumbs[breadcrumbs|length - 2].href }}" class="main-picture-button">
+        <img src="catalog/view/theme/nailshop/assets/img/arrow-left-black.svg" alt="">
+        <span style="color: black;">вернуться</span>
+      </a>
+    </div>
+    {{content_bottom}}
+    <div class="catalog-wrapper">
+      <div class="catalog-wrapper__title">Всего {{products|length}} наименований</div>
+      <div class="catalog">
+        {% for product in products %}
+          <div class="catalog-card">
+            <div class="catalog-card__img">
+              <img src="{{product.thumb}}" alt="card">
+            </div>
+            <div class="catalog-card-description">
+              <div class="catalog-card-description__category">
+                {{product.description}}
+              </div>
+              <div class="catalog-card-description__title">{{product.name}}</div>
+              <div class="catalog-card-description-price">
+                <div class="catalog-card-description-price__value">{{product.price}}</div>
+                <button class="catalog-card-description-price__button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+      </div>
+    </div>
+</main>
+{{footer}}
