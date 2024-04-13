@@ -24,7 +24,7 @@
               <div class="catalog-card-description__title">{{product.name}}</div>
               <div class="catalog-card-description-price">
                 <div class="catalog-card-description-price__value">{{product.price}}</div>
-                <button class="catalog-card-description-price__button">В корзину</button>
+                <button type="button" class="catalog-card-description-price__button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">В корзину</button>
               </div>
             </div>
           </div>
