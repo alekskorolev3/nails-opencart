@@ -92,6 +92,7 @@
     line-height: 22px;
     letter-spacing: 0.07em;
     margin-bottom: 14px;
+    text-transform: uppercase;
 }
 .basket-card-description__price {
     font-family: LT Superior, sans-serif;

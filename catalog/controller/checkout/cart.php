@@ -133,6 +133,7 @@ class ControllerCheckoutCart extends Controller {
 				$data['products'][] = array(
 					'cart_id'   => $product['cart_id'],
 					'thumb'     => $image,
+					'test'		=> $product,
 					'name'      => $product['name'],
 					'model'     => $product['model'],
 					'option'    => $option_data,

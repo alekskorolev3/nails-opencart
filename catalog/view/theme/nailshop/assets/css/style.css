@@ -1222,7 +1222,8 @@ i:last-child {
 }
 
 .footer>hr {
-  border-top-color: #615F5F;
+  border-top-color: #615F5F !important;
+  margin: 0 !important;
 }
 
 .footer-additionally {
