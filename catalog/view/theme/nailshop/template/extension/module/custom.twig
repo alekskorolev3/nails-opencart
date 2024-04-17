@@ -1,0 +1,147 @@
+{{ header }}
+<main class="main">
+<div class="basket">
+	<div class="basket-leftside">
+	<div class="basket-title">
+		<h2>Корзина</h2>
+	</div>
+	{% if cart %}
+		<div id="custom-cart">
+			{{ cart }}
+		</div>
+	{% endif %}
+	{% if module %}
+		<div id="custom-module">{{ module }}</div>
+	{% endif %}
+	{{total}}
+	<div class="basket-delivery">
+		<div class="basket-delivery__title">Доставка</div>
+		<div class="basket-delivery__subitle">Для доставки по России и странам СНГ, заполните форму ниже</div>
+		<from action="" class="basket-delivery-form">
+		<div class="delivery-form__blockInput">
+			<label for="fio">
+			<span>ФИО</span>
+			<input id='fio' name="fio" type="text">
+			</label>
+			<label for="address">
+			<span>Город улица, дом</span>
+			<input id="address" name="address" type="text">
+			</label>
+			<div>
+			<label for="home">
+				<span>Квартира</span>
+				<input id="home" name="home" type="text">
+			</label>
+			<label for="phone">
+				<span>Телефон</span>
+				<input id="phone" name="phone" type="text">
+			</label>
+			</div>
+			<div>
+			<label for="tk">
+				<span>Выбрать ТК</span>
+				<select name="tk" id="tk">
+				<option value="СДЕК" selected>СДЕК</option>
+				</select>
+			</label>
+			<label for="email">
+				<span>Электронная почта</span>
+				<input name="email" id="email" type="email" required>
+
+			</label>
+			</div>
+		</div>
+		<div class="delivery-form__blockRadio">
+			<label class="labelRadio" for="deliveryChoose">
+			<input type="radio" name="deliveryChoose" id="point">
+			<div>
+				<span>Доставка до пункта выдачи, только по России и странам СНГ </span>
+				<span>мы доставим в ближайший пункт выдачи к указанному адресу, бесплатно, при заказе от 3000
+				руб.</span>
+			</div>
+			</label>
+			<label class="labelRadio" for="door">
+			<input type="radio" name="deliveryChoose" id="door" checked>
+			<div>
+				<span>Доставка до двери, только по России и странам СНГ </span>
+				<span>бесплатно, при заказе от 3000 руб.</span>
+			</div>
+			</label>
+		</div>
+		<div class="basket-delivery-form__addone">
+			<span>Для доставки в дальнее зарубежье, либо по иным вопросам, пожалуйста, свяжитесь с нами</span>
+			<span class="basket__phoneContainer">
+			<img src="catalog/view/theme/nailshop/assets/img/white-hone.svg" alt="phone">
+			</span>
+		</div>
+		<button type="submit">Подтвердить данные</button>
+		</from>
+	</div>
+	<div class="basket-payment">
+		<div class="basket-payment__title">Оплата</div>
+		<label class="basket-payment-list" for="payment">
+		<ul>
+			<li>
+			<input type="radio" name="payment" id="" checked>
+			<img src="catalog/view/theme/nailshop/assets/img/creditCard.svg" alt="creditCard">
+			<span>Онлайн оплата банковской картой на сайте</span>
+			</li>
+			<li>
+			<input type="radio" name="payment" id="">
+			<img src="catalog/view/theme/nailshop/assets/img/sber.svg" alt="sber">
+			<span>SberPay Онлайн оплата на сайте Сбербанка</span>
+			</li>
+			<li>
+			<input type="radio" name="payment" id="">
+			<img src="catalog/view/theme/nailshop/assets/img/spb.svg" alt="span">
+			<span>СПБ оплата по QR коду</span>
+			</li>
+		</ul>
+		</label>
+	</div>
+	</div>
+	<div class="basket-rightside">
+	<div class="basket-rightside-description">
+		<div class="basket-rightside-property basket-rightside__payment">
+		<span>К оплате</span>
+		<span>{{totals[0].text}}</span>
+		</div>
+		<div class="basket-rightside-property basket-rightside__products">
+		<span>Всего товаров</span>
+		<span>3 шт.</span>
+		</div>
+		<div class="basket-rightside-property basket-rightside__discount">
+		<span>Скидка</span>
+		<span>200.00 руб</span>
+		</div>
+		<div class="basket-rightside-property basket-rightside__bonus">
+		<span>Начисленно бонусов</span>
+		<span>200.00 руб</span>
+		</div>
+		<div class="basket-rightside-property basket-rightside__delivery">
+		<span>Доставка бесплатно</span>
+		<span>Нет</span>
+		</div>
+		<div class="basket-rightside-property basket-rightside__deliveryPoint">
+		<button>До пункта</button>
+		</div>
+		<div class="basket-rightside-property basket-rightside__deliveryDoor">
+		<button>До двери</button>
+		</div>
+		<span class="reaction"></span>
+		<div class="basket-rightside-button">
+		<button>
+			<span>Оплатить</span><img src="catalog/view/theme/nailshop/assets/img/creditCard-white.svg" alt="payment">
+		</button>
+		</div>
+
+	</div>
+	</div>
+	<div class="move-button">
+	<span>{{totals[0].text}}</span>
+	<span>3 шт.</span>
+	<span>Бесплатная <br> доставка до двери</span>
+	</div>
+</div>
+</main>
+{{ footer }} 

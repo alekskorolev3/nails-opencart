@@ -1,0 +1,51 @@
+{% if products %}
+<form action="{{ action }}" method="post" enctype="multipart/form-data">
+  <div class="basket-btns">
+    <button>
+      <img src="catalog/view/theme/nailshop/assets/img/arrow-left.svg" alt="arrow-left"> вернуться
+    </button>
+    <button>
+      Удалить все
+    </button>
+  </div>
+  <div class="basket-cards">
+    {% for product in products %}
+
+        <div class="basket-card">
+          <div class="basket-card-container-img">
+            <img src="{{product.thumb}}" alt="{{ product.name }}">
+          </div>
+          <div class="basket-card-container-main">
+            <div class="basket-card-description__category">
+              afaa
+            </div>
+            <div class="basket-card-description__title">
+              {{ product.name }}
+            </div>
+            <div class="basket-card-description__price">
+              {{ product.price }}
+            </div>
+          </div>
+          <div class="basket-card-price-container-result">
+            <button class="basket-card-btn" type="button" onclick="custom_cart.update({{ product.cart_id }}, {{ product.quantity - 1 }})" {% if product.quantity == 1 %} disabled {% endif %}>
+              -
+            </button>
+            <button class="basket-card-btn" type="button" onclick="custom_cart.update({{ product.cart_id }}, {{ product.quantity + 1 }})">
+              +
+            </button>
+            <button class="basket-card-btn_count">
+              {{product.quantity}}
+            </button>
+            <div class="basket-card-price__value">
+              {{ product.total }}
+            </div>
+          </div>
+          <button type="button" class="basket-card__close" onclick="custom_cart.remove('{{ product.cart_id }}');">
+            <img src="catalog/view/theme/nailshop/assets/img/cross-basket-card.svg" alt="cross-basket-card">
+          </button>
+        </div>
+    {% endfor %}
+  </div>
+  
+</form>
+{% endif %}
