@@ -1,0 +1,100 @@
+{{ header }}{{ column_left }}
+<div id="content">
+    <div class="page-header">
+      <div class="container-fluid">
+      <div class="pull-right float-right">
+        <button type="button" id="btn_ocm_save" value="save" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fas fa-save"></i></button>
+        <a id="btn_ocm_quick" onclick="return false;" data-toggle="tooltip" title="{{ button_save_continue }}" id="btn_ocm_quick" class="btn btn-info"><i class="fa fas fa-clipboard fa-window-restore"></i></a>&nbsp;
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default btn-light"><i class="fa fas fa-reply"></i></a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+          {% for breadcrumb in breadcrumbs %}
+            <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+          {% endfor %}
+      </ul>
+      </div>
+   </div>
+   <div class="container-fluid">
+      {% if error_warning %}
+        <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      {% endif %}
+      {% if success %}
+        <div class="alert alert-success"><i class="fa fa-exclamation-circle"></i> {{ success }}
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      {% endif %}
+      <div class="card panel panel-default">
+        <div class="panel-heading card-header">
+           <h3 class="panel-title"><i class="fa fas fa-pencil-alt"></i> {{ text_edit }}</h3>
+        </div>
+        <div class="panel-body card-body">
+          <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-ocm" class="form-horizontal">
+            <input type="file" class="ocm-file" accept="text/csv" name="file" />
+            <div class="row">
+                <div class="col-sm-3">
+                   <ul id="ocm-method-list" class="nav flex-column draggable-container">
+                     <li class="nav-item" draggable="false"><a draggable="false" href="#tab-global" class="nav-link global" data-toggle="tab">{{ tab_global }}</a></li>
+                      {% for no_of_tab, name in methods %}
+                        <li draggable="true" class="nav-item draggable"><a draggable="false" class="nav-link tab{{ no_of_tab }}" href="#ocm-method-{{ no_of_tab }}" rel="{{ no_of_tab }}" data-toggle="tab">
+                      {{ name }}</a><i class="fa fas fa-arrows-alt"></i></li>
+                      {% endfor %}
+                   </ul>
+                  <button class="btn btn-success add-ocm-new" data-toggle="tooltip" form="form-ocm" type="button"  data-placement="bottom"  data-original-title="{{ text_add_new_method }}"><i class="fa fa-plus"></i></button>
+                </div>
+                <div class="col-sm-9">
+                    <div id="ocm-container" class="tab-content">
+                        <div class="tab-pane active global-tab-content" id="tab-global">
+                            {{ global }}
+                        </div>
+                        {{ form_data }}
+                    </div>
+                </div>
+            </div>
+          </form>
+       </div>
+     </div>
+   </div>
+</div>
+<link rel="stylesheet" type="text/css" href="view/javascript/ocm/ocm.css?v=1.1.3">
+<style type="text/css"> 
+.method-tab {
+    margin-top: 20px;
+}
+.price-range {
+    float: left;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 15px;
+}
+/*  For  OC 3.1 */
+{% if oc_3_1 == true %}
+h3.panel-title {
+    font-size: 15px;
+    font-weight: normal;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+{% endif %}
+</style>
+<script type="text/javascript">
+var _ocm = {
+    token: 'user_token={{ user_token }}',
+    name: '{{ x_name }}',
+    path: '{{ x_path }}',
+    dnd: true, 
+    dpTime: '{{ oc_3_1 }}',
+    dashboard: '{{ cancel }}'
+};
+</script>
+<script src="view/javascript/ocm/ocm.js?v=1.1.5" type="text/javascript"></script>
+<script type="text/javascript"><!--
+var ocm_tab;
+var tpl = {{ tpl }};
+var more_help = {{ more_help }};
+//--></script>
+{{ _v }}
+{{ footer }}
