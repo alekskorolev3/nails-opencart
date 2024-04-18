@@ -520,6 +520,38 @@
     letter-spacing: 0.01em;
 }
 
+.basket-rightside__payment {
+    order: 1;
+}
+
+.basket-rightside__products {
+    order: 2;
+}
+
+.basket-rightside__discount {
+    order: 3;
+}
+
+.basket-rightside__bonus {
+    order: 4;
+}
+
+.basket-rightside__delivery {
+    order: 5;
+}
+
+.basket-rightside__deliveryPoint {
+    order: 6;
+}
+
+.basket-rightside__deliveryDoor {
+    order: 7;
+}
+
+.basket-rightside-button {
+    order: 8;
+}
+
 .basket-rightside__payment span{
     font-family: LT Superior, sans-serif;
     font-size: 21px;

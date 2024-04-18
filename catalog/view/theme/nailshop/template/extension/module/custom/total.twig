@@ -1,8 +1,51 @@
-<table class="table table-bordered">
-	{% for total in totals %} 
-		<tr>
-			<td class="text-right"><strong>{{ total.title }}:</strong></td>
-			<td class="text-right">{{ total.text }}</td>
-		</tr>
-	{% endfor %} 
-</table>
+<div class="basket-rightside">
+		<div class="basket-rightside-description">
+			{% for total in totals %}
+				{% if total.title == 'Итого' %}
+					<div class="basket-rightside-property basket-rightside__payment">
+						<span>К оплате</span>
+						<span>{{total.text}}</span>
+					</div>
+					<div class="basket-rightside-property basket-rightside__products">
+						<span>Всего товаров</span>
+						<span>3 шт.</span>
+					</div>
+				{% elseif total.title|slice(0, 5) == 'Купон' %}
+					<div class="basket-rightside-property basket-rightside__discount">
+						<span>Скидка</span>
+						<span>{{ total.text }}</span>
+					</div>
+					<div class="basket-rightside-property basket-rightside__bonus">
+						<span>Начисленно бонусов</span>
+						<span>200.00 руб</span>
+					</div>
+					<div class="basket-rightside-property basket-rightside__delivery">
+						<span>Доставка бесплатно</span>
+						<span>Нет</span>
+					</div>
+					<div class="basket-rightside-property basket-rightside__deliveryPoint">
+					<button>До пункта</button>
+					</div>
+					<div class="basket-rightside-property basket-rightside__deliveryDoor">
+					<button>До двери</button>
+					</div>
+				{% endif %}
+			{% endfor %}
+			<span class="reaction"></span>
+				<div class="basket-rightside-button">
+					<button>
+						<span>Оплатить</span><img src="catalog/view/theme/nailshop/assets/img/creditCard-white.svg" alt="payment">
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="move-button">
+			{% for total in totals %}
+				{% if total.title == 'Итого' %}
+					<span>{{total.text}}</span>
+					<span>3 шт.</span>
+					<span>Бесплатная <br> доставка до двери</span>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>

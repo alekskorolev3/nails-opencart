@@ -106,6 +106,8 @@ class ControllerExtensionModuleCustomCart extends Controller {
 				$data['products'][] = array(
 					'cart_id'   => $product['cart_id'],
 					'thumb'     => $image,
+					'product_info' => $product_info,
+					'description' => utf8_substr(trim(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')),
 					'name'      => $product['name'],
 					'model'     => $product['model'],
 					'sku'     	=> $product_info["sku"],

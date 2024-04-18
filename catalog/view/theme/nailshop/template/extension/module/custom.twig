@@ -13,7 +13,6 @@
 	{% if module %}
 		<div id="custom-module">{{ module }}</div>
 	{% endif %}
-	{{total}}
 	<div class="basket-delivery">
 		<div class="basket-delivery__title">Доставка</div>
 		<div class="basket-delivery__subitle">Для доставки по России и странам СНГ, заполните форму ниже</div>
@@ -100,48 +99,8 @@
 		</label>
 	</div>
 	</div>
-	<div class="basket-rightside">
-	<div class="basket-rightside-description">
-		<div class="basket-rightside-property basket-rightside__payment">
-		<span>К оплате</span>
-		<span>{{totals[0].text}}</span>
-		</div>
-		<div class="basket-rightside-property basket-rightside__products">
-		<span>Всего товаров</span>
-		<span>3 шт.</span>
-		</div>
-		<div class="basket-rightside-property basket-rightside__discount">
-		<span>Скидка</span>
-		<span>200.00 руб</span>
-		</div>
-		<div class="basket-rightside-property basket-rightside__bonus">
-		<span>Начисленно бонусов</span>
-		<span>200.00 руб</span>
-		</div>
-		<div class="basket-rightside-property basket-rightside__delivery">
-		<span>Доставка бесплатно</span>
-		<span>Нет</span>
-		</div>
-		<div class="basket-rightside-property basket-rightside__deliveryPoint">
-		<button>До пункта</button>
-		</div>
-		<div class="basket-rightside-property basket-rightside__deliveryDoor">
-		<button>До двери</button>
-		</div>
-		<span class="reaction"></span>
-		<div class="basket-rightside-button">
-		<button>
-			<span>Оплатить</span><img src="catalog/view/theme/nailshop/assets/img/creditCard-white.svg" alt="payment">
-		</button>
-		</div>
-
-	</div>
-	</div>
-	<div class="move-button">
-	<span>{{totals[0].text}}</span>
-	<span>3 шт.</span>
-	<span>Бесплатная <br> доставка до двери</span>
-	</div>
-</div>
+	{% if total %} 
+		<div id="custom-total">{{ total }}</div>
+	{% endif %} 
 </main>
 {{ footer }} 

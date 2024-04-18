@@ -140,6 +140,8 @@ class ControllerApiCart extends Controller {
 			// Products
 			$json['products'] = array();
 
+			echo $products
+
 			$products = $this->cart->getProducts();
 
 			foreach ($products as $product) {
@@ -172,6 +174,7 @@ class ControllerApiCart extends Controller {
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
 					'model'      => $product['model'],
+					'description' => utf8_substr(trim(strip_tags(html_entity_decode($product['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')),
 					'option'     => $option_data,
 					'quantity'   => $product['quantity'],
 					'stock'      => $product['stock'] ? true : !(!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning')),
