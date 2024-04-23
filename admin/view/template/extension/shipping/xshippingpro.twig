@@ -1,0 +1,463 @@
+{{ header }}{{ column_left }}
+<div id="content">
+    <div class="page-header">
+      <div class="container-fluid">
+      <div class="pull-right float-right">
+        <button type="button" id="save_form" form="form-ocm" value="save" name="action" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fas fa-save"></i></button>
+        <a id="quick_save" onclick="return false;" data-toggle="tooltip" title="{{ button_save_continue }}" id="quick_save" class="btn btn-info"><i class="fa fas fa-clipboard fa-window-restore"></i></a>&nbsp;
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default btn-light"><i class="fa fas fa-reply"></i></a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+          {% for breadcrumb in breadcrumbs %}
+            <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+          {% endfor %}
+      </ul>
+      </div>
+   </div>
+   <div class="container-fluid">
+      {% if error_warning %}
+        <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      {% endif %}
+      {% if success %}
+        <div class="alert alert-success"><i class="fa fa-exclamation-circle"></i> {{ success }}
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      {% endif %}
+      <div class="card panel panel-default">
+        <div class="panel-heading card-header">
+           <h3 class="panel-title"><i class="fa fas fa-pencil-alt"></i> {{ text_edit }}</h3>
+        </div>
+        <div class="panel-body card-body">
+          <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-ocm" class="form-horizontal">
+            <input type="file" class="ocm-file" accept="text/csv" name="file" />
+            <div class="row">
+                <div class="col-sm-3">
+                   <ul id="method-list" class="nav flex-column draggable-container">
+                     <li class="nav-item" draggable="false"><a draggable="false" href="#tab-global" class="nav-link global" data-toggle="tab">{{ tab_global }}</a></li>
+                      {% for no_of_tab, name in methods %}
+                        <li draggable="true" class="nav-item draggable"><a draggable="false" class="nav-link tab{{ no_of_tab }}" href="#ocm-method-{{ no_of_tab }}" rel="{{ no_of_tab }}" data-toggle="tab">
+                      {{ name }}</a><i class="fa fas fa-arrows-alt"></i></li>
+                      {% endfor %}
+                   </ul>
+                  <button class="btn btn-success add-new" data-toggle="tooltip" form="form-ocm" type="button"  data-placement="bottom"  data-original-title="{{ text_add_new_method }}"><i class="fa fa-plus"></i></button>
+                </div>
+                <div class="col-sm-9">
+                    <div id="ocm-container" class="tab-content">
+                        <div class="tab-pane active global-tab-content" id="tab-global">
+                            {{ global }}
+                        </div>
+                        {{ form_data }}
+                    </div>
+                </div>
+            </div>
+          </form>
+       </div>
+     </div>
+   </div>
+</div>
+<link rel="stylesheet" type="text/css" href="view/javascript/ocm/ocm.css">
+<style type="text/css"> 
+.sub-option {
+  border: 1px solid #ccc;
+  background: #fbfbfb;
+  padding: 10px 75px 10px 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.sub-option .sub-option-action {
+  position: absolute;
+  top: 40px;
+  right: 5px;
+  width: 50px;
+}
+.sub-option table {
+  width: 100%;
+}
+.sub-option table td {
+  padding: 5px;
+}
+.sub-options-btn {
+  text-align: right;
+}
+.drag-sub-option {
+  cursor: move !important;
+}
+.price-range {
+    float: left;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 15px;
+}
+.ocm-range-container.range-cols td.range, .ocm-range-container.product-cols td.product {
+    display: table-cell !important;
+}
+/*  For  OC 3.1 */
+{% if oc_3_1 == true %}
+h3.panel-title {
+    font-size: 15px;
+    font-weight: normal;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+{% endif %}
+</style>
+<script type="text/javascript">
+var _ocm = {
+    token: 'user_token={{ user_token }}',
+    name: '{{ x_name }}',
+    path: '{{ x_path }}'
+};
+</script>
+<script src="view/javascript/ocm/ocm.js?v=1.0.0" type="text/javascript"></script>
+<script type="text/javascript"><!--
+var current_tab;
+var unit_row ='<tr rel="{index}">'; 
+    unit_row += ' <td class="text-left ocm-hide product">{name}<input type="hidden" name="xshippingpro[ranges][{index}][product_id]" value="{product_id}" /></td>';
+    unit_row += '    <td class="text-left ocm-hide range"><input size="15" type="text" name="xshippingpro[ranges][{index}][start]" class="form-control" value="{start}" /></td>';
+    unit_row += '    <td class="text-left ocm-hide range"><input size="15" type="text" name="xshippingpro[ranges][{index}][end]" class="form-control" value="{end}" /></td>';
+    unit_row += '    <td class="text-left"><input size="15" type="text" name="xshippingpro[ranges][{index}][cost]" class="form-control" value="{cost}" /></td>';
+    unit_row += '    <td class="text-left"><input size="6" type="text" name="xshippingpro[ranges][{index}][block]" class="form-control" value="{block}" /></td>';
+    unit_row += '    <td class="text-left ocm-hide range"><select name="xshippingpro[ranges][{index}][partial]"><option value="0">{{ text_no }}</option><option value="1">{{ text_yes }}</option></select></td>';
+    unit_row += '    <td class="text-left ocm-hide product"><select name="xshippingpro[ranges][{index}][type]"><option value="quantity">{{ text_rate_quantity }}</option><option value="weight">{{ text_rate_weight }}</option><option value="price">{{ text_product_price }}</option></select></td>';
+    unit_row += '    <td class="text-right"><a class="btn btn-danger remove-row">{{ text_remove }}</a></td>';
+    unit_row += '</tr>';
+
+var tpl = {{ tpl }};
+var more_help = {{ more_help }};
+
+/* Datepicker setting */
+var _dp_option = {
+      format: 'YYYY-MM-DD',
+      locale: 'en-gb',
+      allowInputToggle: true,
+      {% if oc_3_1 == false %}
+      pickTime: false
+      {% endif %}
+};
+
+/* be called upon user selection from batch item list via ocm browser event */
+function onItemsSelection(type, selected, result) {
+    if (type == 'category') {
+        ocm.action.doAjax('fetchCategoy', selected, onBatchSelction);
+    } else {
+        var json = [];
+        selected.each(function(i) {
+            var product_id = parseInt($(this).val());
+            for (var i = 0; i < result.length; i++) {
+                if (parseInt(result[i].product_id) == product_id) {
+                    json.push({
+                        name: result[i].name,
+                        product_id: result[i].product_id
+                    });
+                }
+            }
+        });
+        onBatchSelction(json, 'product');
+    }
+}
+/* Apply selected list to the dom */
+function onBatchSelction(json, type) {
+    type = type || 'category';
+    var current_method = $('#ocm-method-' + current_tab);
+    var container = $('div[name^="'+_ocm.name+'[product_' + type + ']"]', current_method); 
+    var name = container.attr('name');
+    for (var i = 0; i < json.length; i++) {
+        var item = json[i];
+        $('.ocm-autofill-item[value="' + item[type + '_id'] + '"]', container).remove();
+        container.append('<div value="' + item[type +'_id'] + '" class="ocm-autofill-item"><i class="fa fa-minus-circle"></i> ' + item['name'] + '<input type="hidden" name="' + name + '" value="' + item[type + '_id'] + '" /></div>');
+    }
+}
+
+/* Add new method to the left nav i.e method list */
+function addToMethodList(id, name) {
+    if (!name) {
+        name = 'Untitled Method' + id;
+    }
+    var tab = '<li draggable="true" class="nav-item draggable">'
+                 + '<a draggable="false" class="nav-link" data-toggle="tab" href="#ocm-method-' + id + '" rel="' + id + '">' + name + '</a>'
+                 + '<i class="fa fas fa-arrows-alt"></i>'
+               + '</li>';
+    $('#method-list').append(tab);
+}
+
+/* Get method list for auto completion */
+function getMethodList(request) {
+    var methods = [];
+    $('#ocm-container').find('div.ocm-method').each(function() {
+    var name,
+        tab_id,
+        $this = $(this);
+    tab_id = $this.attr('id');
+    tab_id = parseInt(tab_id.replace('ocm-method-',''));
+    name = $this.find('input.display').val();
+    if (!name) name = 'Untitled' + tab_id;
+    if (current_tab != tab_id && name.toLowerCase().indexOf(request) != -1) {
+            methods.push({
+                label: name,
+                value: tab_id
+            });
+        }
+    });
+    return methods;
+}
+
+/* Enable Events to the new tab */
+ function enableEvents(no_of_tab){
+    var current_method = $('#ocm-method-' + no_of_tab);
+    $('#method-list a[rel="' + no_of_tab +'"]').trigger('click');
+    $("[data-toggle='tooltip']", current_method).tooltip();
+    $('input.ocm-autofill', current_method).autocomplete(ocm.complete);
+    $('.date').datetimepicker(_dp_option);
+ }
+ /* Batch product selection for the `Shipping By`` section i.e into ranges cost   */
+ function addProductIntoRanges(type, selected, result) {
+    var _html = '';
+    var product_nodes = $('#ocm-method-'+current_tab+ ' input[name*="product_id"]'); 
+    selected.each(function(i) {
+        var product_id = parseInt($(this).val());
+        var product = ocm.util.get_in(product_id, result, 'product_id');
+        var _is_already_exist = ocm.util.in_dom_array(product_id, product_nodes, 'value');
+        if (!_is_already_exist) {
+            var data = {index : getNextRange(), end: 0, cost: 0, block: 0};
+            data.name = product.name;
+            data.product_id = product.product_id;
+            var _row = ocm.util.interpolate(unit_row, data);
+            $('#ocm-method-'+current_tab).find('.ocm-range-container tbody').append(_row);
+        }
+    });
+    toggleNoRanges();
+}
+/* Next Row ID of the ranges  */
+function getNextRange() {
+    var next = 0;
+    $('#ocm-method-' + current_tab).find('.ocm-range-container tbody tr[rel]').each(function(){
+         if (parseInt($(this).attr('rel')) > next) {
+            next = parseInt($(this).attr('rel'));
+         }
+    });
+    next++;
+    return next;
+}
+/*  Toggle No-Data row to the ranges */
+function toggleNoRanges() {
+    if ($('#ocm-method-' + current_tab).find('.ocm-range-container tbody tr[rel]').length == 0) {
+        $('#ocm-method-' + current_tab).find('.ocm-range-container tbody').append('<tr class="no-row"><td colspan="6">{{ text_no_unit_row }}</td></tr>');
+    } else {
+        $('#ocm-method-' + current_tab).find('.ocm-range-container tbody tr.no-row').remove();
+    }
+}
+
+/* callback of  CSV upload  of the ranges option */
+function onCsvFinish(json) {
+    if (json['data']) {
+         for(i=0; i < json['data'].length; i++) {
+            var data = json['data'][i];
+            data.partial = data.partial || 0;
+            data.type = data.type || 'quantity';
+            data.index = getNextRange();
+            var _row = ocm.util.interpolate(unit_row, data);
+            $('#ocm-method-'+current_tab).find('.ocm-range-container tbody').append(_row);
+            $('#ocm-method-'+current_tab).find('.ocm-range-container tr[rel="'+data.index+'"] [name*="partial"]').val(data.partial);
+            $('#ocm-method-'+current_tab).find('.ocm-range-container tr[rel="'+data.index+'"] [name*="type"]').val(data.type);
+        }
+        toggleNoRanges();
+    }
+}
+
+/* DOM  Event starts */
+$(document).ready(function () {
+    $("#method-list").on("click","li",function(){
+        current_tab = $(this).find('a').attr('rel');
+    });
+    /* Make first tab active  */
+    $('#method-list a:first').trigger('click');
+
+    /* Creating New method*/
+    $('.add-new').on('click',function(e) {
+        e.preventDefault();
+        $this = $(this);
+        var no_of_tab = getNextTab();
+        var tab_html = tpl.method;
+        tab_html = tab_html.replace('__ID__','ocm-method-'+no_of_tab);
+        tab_html = tab_html.replace(/__INDEX__/g, no_of_tab);
+        $('#ocm-container').append(tab_html);
+        addToMethodList(no_of_tab);
+        enableEvents(no_of_tab); 
+        current_tab = no_of_tab;
+    });
+    /* End of creating new*/
+
+    /* datepicker */
+    $('.date').datetimepicker(_dp_option);
+    enableDragDrop();
+
+    /* Saving action */
+    $('#quick_save, #save_form').click(function() {
+        var is_redirect = ($(this).attr('id') === 'save_form');
+        ocm.action.grabData().onEnd = function () {
+            if (is_redirect) {
+                location = "{{ cancel }}".replace(/&amp;/g, '&');
+            }
+        };
+        ocm.action.saveGeneral();
+    });
+
+    /* OCM Browser  for batch selection */
+    $('#ocm-container').on('click', '.ocm-browser', function(e) {
+        e.preventDefault();
+        ocm.browser.show({
+            type: $(this).attr('rel'),
+            fn: onItemsSelection
+        });
+    });
+
+    /* add auto complete config for method  */
+    ocm.complete.addConfig('hide', { url: getMethodList });
+
+    /* Dependant fields */
+    $("#ocm-container").on('change', '[ocm-on]', function() {
+        var context = typeof current_tab != 'undefined' ? $('#ocm-method-' + current_tab) : document;
+        var nodeName = this.nodeName.toLowerCase();
+        var dependant = $('div[ocm-attr="' + $(this).attr('ocm-on') + '"]', context);
+        if (!dependant.length && nodeName != 'input') {
+            dependant = $('div.' + $(this).val(), context);
+            var hasDependantNode = $('div.' + $(this).attr('ocm-on'), context);
+            if (hasDependantNode.length) {
+                hasDependantNode.removeClass('ocm-visible');
+            } else {
+                dependant.length = 0;
+            }
+        }
+        if (dependant.length) {
+            dependant.removeClass('ocm-visible');
+            var visible = (nodeName == 'input') ? !$(this).prop('checked') : $(this).val();
+            if (visible) {
+                dependant.addClass('ocm-visible');
+            }
+        }
+    });
+
+    /*  Delete, copy and method display on type */
+    $("#ocm-container").on('click', 'button.btn-delete', function() { 
+      if(confirm('Are you sure to delete this method?')){
+            ocm.action.deleteMethod(current_tab);
+            $('#method-list a[rel="' + current_tab +'"]').remove();
+            $('#ocm-method-' + current_tab).remove();
+            $('#method-list a:first').tab('show');
+        }
+    });
+   
+    $("#ocm-container").on('click', 'button.btn-copy', function() { 
+        if(confirm('Are you sure to copy this method?')){
+            current_tab = copyMethod(current_tab, _ocm.name);
+            enableEvents(current_tab);
+        }
+    });
+  
+    $("#ocm-container").on('keyup','input.display', function() {
+        var method_name = $(this).val();
+        if (method_name =='') method_name = 'Untitled Method ' + current_tab;
+        $('#method-list a[rel="' + current_tab +'"]').html(method_name);
+    });
+
+    /* Load Zone by countries */
+    $("#ocm-container").on('change','[name^="xshippingpro[country]"]', function(e) { 
+        var data = $(this).closest('.ocm-checkgroup-checkbox').find('input[type="checkbox"]:checked');
+        ocm.action.doAjax('fetchZone', data, function(json) {
+            var _html = '';
+            var current_method = $('#ocm-method-' + current_tab);
+            var active_zones = $('[name^="xshippingpro[zone]"]:checked', current_method).map(function() {
+                  return $(this).val(); 
+            }).toArray();
+            for (var i = 0; i < json.length; i++) {
+                var item = json[i];
+                var checked = active_zones.indexOf(item['zone_id']) !== -1 ? 'checked' : '';
+                _html +='<label><input type="checkbox" '+checked+' name="xshippingpro[zone][]" value="'+item['zone_id']+'" />&nbsp;' + item['name'] + '</label>';
+            }
+            $('[ocm-attr="zone"] .ocm-checkgroup-checkbox', current_method).html(_html);
+        });
+    });
+
+    //TODO - redo whole grouping with better UI
+    $("select[class^='xshippingpro_sub_group']").change(function(){
+        var groupid = $(this).attr('class').replace('xshippingpro_sub_group','');
+        if ($(this).val() == 'lowest' || $(this).val() == 'highest') {
+            $('.xshippingpro_sub_group_limit'+parseInt(groupid)).show();
+        }  else{
+            $('.xshippingpro_sub_group_limit'+parseInt(groupid)).hide();
+        }
+    });
+
+    /* Price Range Options */
+    $("#ocm-container").on('click','.add-new-row',function() {
+        var rate_type = $('#ocm-method-' + current_tab).find("select[name^='xshippingpro[rate_type]']").val();
+        if (rate_type == 'product') {
+            ocm.browser.show({
+                type: 'product',
+                fn: addProductIntoRanges
+            });
+        } else {
+            var data = {index : getNextRange(), start: 0, end: 0, cost: 0, block: 0};
+            var _row = ocm.util.interpolate(unit_row, data);
+            $(this).closest('table').find('tbody').append(_row);
+            toggleNoRanges();
+        }
+    });
+    $("#ocm-container").on('click','.remove-row',function() {
+        $(this).closest('tr').remove(); 
+        toggleNoRanges();
+    });
+    $("#ocm-container").on('click','.delete-all',function(){
+        $(this).closest('div.ocm-range-container').find('tbody > tr').remove();  
+        toggleNoRanges();
+    });
+
+     /* switch between product and generic ranges */
+    $("#ocm-container").on('change', "select[name^='xshippingpro[rate_type]']", function() {
+        var range_container = $(this).closest('.tab-pane').find('.ocm-range-container');
+        if ($(this).val() == 'product') {
+            range_container.removeClass('range-cols').addClass('product-cols');
+            range_container.find('.delete-all').trigger('click');
+        }  else{
+            range_container.removeClass('product-cols').addClass('range-cols');
+        }
+    });
+
+    /* CSV upload*/
+    $("#ocm-container").on('click', '.range-import-btn', function() {
+        $('input.ocm-file:file').trigger('click');
+    });
+
+    $("input.ocm-file:file").change(function () {
+        var file = $('input.ocm-file:file').get(0).files[0];
+        var fd = new FormData();
+        fd.append('file', file);
+        $('input.ocm-file:file').val('');
+        ocm.action.doAjax('importCSV', fd, onCsvFinish);
+    });
+    /* End Of Range Option */
+
+    /* Sub- Options */
+    $("#ocm-container").on('click','.add-sub-option',function(){
+        var sub_options = [0];
+        $('#ocm-method-' + current_tab + ' .sub-options-container .sub-option').each(function() {
+            sub_options.push(parseInt($(this).attr('index')));
+        });
+        var counter = Math.max.apply(null, sub_options);
+        counter++;
+        var sub_option_html = tpl.sub_option.replace(/__INDEX__/g, counter);
+        $('#ocm-method-' + current_tab + ' .sub-options-container').append(sub_option_html);
+        $('#ocm-method-' + current_tab + ' .sub-option-'+counter+' [data-toggle="tooltip"]').tooltip();
+    });
+    $("#ocm-container").on('click','.delete-sub-option',function() {
+        $(this).closest('.sub-option').remove();
+    });
+    /* End of Sub-options */
+ });
+//--></script>
+{{ _v }}
+{{ footer }}

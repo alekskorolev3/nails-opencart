@@ -20,6 +20,15 @@ class ControllerExtensionModuleCustomTotal extends Controller {
 				);
 			}
 
+			$products = $this->cart->getProducts();
+			$products_quantities = 0;
+
+			foreach($products as $product) {
+				$products_quantities += $product['quantity'];
+			}
+
+			$data['quantities_products'] = $products_quantities;
+
 			$data['setting'] = $setting;
 			return $this->load->view('extension/module/custom/total', $data);
 
@@ -37,7 +46,8 @@ class ControllerExtensionModuleCustomTotal extends Controller {
 		$totals = array();
 		$taxes = $this->cart->getTaxes();
 		$total = 0;
-		
+		$results_custom = array();
+
 		// Because __call can not keep var references so we put them into an array.
 		$total_data = array(
 			'totals' => &$totals,
@@ -50,6 +60,7 @@ class ControllerExtensionModuleCustomTotal extends Controller {
 			$sort_order = array();
 
 			$results = $this->model_setting_extension->getExtensions('total');
+			
 
 			foreach ($results as $key => $value) {
 				$sort_order[$key] = $this->config->get('total_' . $value['code'] . '_sort_order');
@@ -74,11 +85,14 @@ class ControllerExtensionModuleCustomTotal extends Controller {
 
 			array_multisort($sort_order, SORT_ASC, $totals);
 
+			$results_custom = $this->model_setting_extension->getExtensions('cart');
+
 		}
 		
 		return array(
 			'total' => $total,
-			'totals' => $totals
+			'totals' => $totals,
+			'custom' => $results_custom
 		);
 		
 	}

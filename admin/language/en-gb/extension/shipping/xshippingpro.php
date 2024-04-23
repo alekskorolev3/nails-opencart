@@ -1,20 +1,15 @@
 <?php
 // Heading
-$_['heading_title']    = 'X-Shipping Free';
-$_['button_save'] = 'Save All and Close';
-$_['button_save_continue'] = 'Save All and Stay';
-$_['button_cache'] = 'Clear Cache';
+$_['heading_title']    = 'X-Shipping Pro';
+$_['button_save_continue'] = 'Save and Stay';
+
 // Common accors mods
 $_['text_for_all']    = 'For Any';
 $_['text_checked_all'] = 'Check all';
 $_['text_unchecked_all'] = 'Uncheck all';
-$_['text_checked_show'] = 'Show Selected';
 $_['text_batch_select']= 'Batch Selection';
 $_['text_remove_all']    = 'Remove All';
 $_['text_free_search']    = 'Type to search';
-$_['text_ocm_inclusive']    = 'Inlcusive';
-$_['text_ocm_exclusive']    = 'Exclusive';
-$_['text_ocm_mode']    = 'Mode';
 $_['text_start']    = 'Start';
 $_['text_end']    = 'End';
 
@@ -65,6 +60,7 @@ $_['entry_postal_rule']    = 'Zip/Postal Rule';
 $_['entry_city_all']    = 'City';
 $_['entry_city']    = 'Enter City';
 $_['entry_city_rule']    = 'City Rule';
+$_['entry_customer_rule']    = 'Customer Rule';
 $_['entry_order_total']       = 'Order Total Range:';
 $_['entry_weight']       = 'Weight Range:';
 $_['entry_quantity']       = 'Quantity Range:';
@@ -81,8 +77,8 @@ $_['entry_option']    = 'Option Rule';
 $_['entry_product_option']    = 'Product Options';
 $_['entry_location_rule']    = 'Location Rule';
 $_['entry_location']    = 'Product Location';
-$_['entry_ingore_product_rule']    = 'Don\'t restrict the method with product rules';
-$_['entry_product_or']    = 'Product Rules Mode:';
+$_['entry_ingore_product_rule']    = 'Ignore Product Rules.';
+$_['entry_product_or']    = 'Proudct Rules Mode:';
 $_['entry_method_specific']    = 'Respect Product Rules';
 $_['entry_rate_type']    = 'Shipping By';
 $_['entry_dimensional_factor']    = 'Factor Value';
@@ -116,9 +112,8 @@ $_['entry_group_shipping_mode']    = 'Group in groups';
 $_['entry_max_package_dim'] = 'Shipping Package Dimension:';
 $_['entry_customer'] = 'Customers:';
 $_['entry_customers'] = 'Select Customers:';
-
 // Tabs
-$_['tab_help']    = 'Help & Support';
+$_['tab_help']    = 'Help & Supprt';
 $_['tab_global']    = 'Global Setting';
 $_['tab_global_general']    = 'General';
 $_['tab_general']    = 'General';
@@ -147,8 +142,8 @@ $_['text_ones_any'] = 'Any of the selected ones';
 $_['text_ones_any_with_other'] = 'Any of the selected ones along with others';
 $_['text_ones_must'] = 'Must have selected ones';
 $_['text_ones_must_with_other'] = 'Must have selected ones along with others';
-$_['text_ones_except'] = 'Except for the selected ones';
-$_['text_ones_except_with_other'] = 'Except for the selected ones but allowed with others';
+$_['text_ones_except'] = 'Except the selected ones';
+$_['text_ones_except_with_other'] = 'Except the selected ones but allowed with others';
 $_['text_rule_inclusive']    = 'Inlcusive';
 $_['text_rule_exclusive']    = 'Exclusive';
 $_['text_sunday']    = 'Sunday';
@@ -245,14 +240,14 @@ $_['text_ingore_product']    = 'These product rules will be not used to restrict
 $_['text_export'] = 'Export';
 $_['text_import'] = 'Start Import';
 $_['text_action'] = 'Action';
-$_['text_shipping_disable'] = 'Make all X-Shippingpro methods unavailable when this method become active';
+$_['text_shipping_disable'] = 'Make all X-Shippingpro methods unavailable when this method became active';
 $_['text_estimator_country']    = 'Country';
 $_['text_estimator_zone']    = 'Region / State';
 $_['text_estimator_postal']    = 'Postcode';
 $_['text_type_avail']    = 'Show Shipping Availablity Only';
 $_['text_type_method']    = 'Show Shipping Methods With Cost';
 $_['text_method_specific']    = 'Only take the products into account according to the product rules';
-$_['text_rate_type_product'] = 'Per Product';
+$_['text_rate_type_product'] = 'Per Product Cost';
 $_['text_product_price'] = 'Price';
 $_['text_product_name'] = 'Name';
 $_['text_product_unit_type'] = 'Unit Block Type';
@@ -279,8 +274,8 @@ $_['text_eq_method_total_tax'] = 'Cost of the products including tax which are v
 $_['text_eq_height']    = 'Denotes minimum, maximun and average height of the cart products';
 $_['text_eq_width']    = 'Denotes minimum, maximun and average width of the cart products';
 $_['text_eq_length']    = 'Denotes minimum, maximun and average length of the cart products';
-$_['text_eq_any']    = 'Denotes resepctive parameter value any of the cart products';
-$_['text_pro'] = 'Pro Feature';
+$_['text_eq_all']    = 'Available when `Shipping By` is Equation Value. Denotes respective parameter value any of the cart products. It will iterate provided ranges over products and sup up cost of all matched products.';
+$_['text_eq_any']    = 'Available in Ternary operator only. Denotes respective parameter value any of the cart products. It will iterate equation over products.';
 // Global text across mods
 $_['text_documentation']   = 'Documentation';
 $_['text_update']    = 'Check For Update';
@@ -327,13 +322,13 @@ $_['help_name']       = 'This name will be appear during chekout on the store.';
 $_['help_sort_order']       = 'Sorting order amoung methods created by X-Shippingpro';
 $_['help_status']       = 'Enable/Disable this particular method only';
 $_['help_store']  = $_['help_zone'] = $_['help_customer_group'] = $_['help_currency'] = $_['help_geo_zone'] = $_['help_country'] = $_['help_payment'] = $_['help_city_all'] = $_['help_postal_all'] = $_['help_coupon_all'] = $_['help_days'] = $_['help_customer'] = 'If you want to specify any particular items, please uncheck `For Any` to show the available options';
-$_['help_coupon_rule'] = $_['help_postal_rule'] = $_['help_city_rule']= '<b>Inlcusive:</b> Shipping method will appear for the entered items only. <b>Exclusive:</b> Shipping method will appear for non-entered items only.';
+$_['help_customer_rule'] = $_['help_coupon_rule'] = $_['help_postal_rule'] = $_['help_city_rule']= '<b>Inlcusive:</b> Shipping method will appear for the entered items only. <b>Exclusive:</b> Shipping method will appear for non-entered items only.';
 $_['help_weight'] = $_['help_quantity'] = $_['help_order_total']  = 'Inclusive value. Additional restriction rule if you want to use. If you don\'t need, just keep blank. Noted that this rule does not respect product rules i.e. it would consider whole cart value.';
 $_['help_display'] = 'For admin use only. It helps you to differentiate a method from others sharing same name.';
 $_['help_city']  = 'Multiple cities are supported. Newline/Comma Separated';
 $_['help_desc']       = 'Description would be appeared just after the shipping method name';
 $_['help_coupon']       = 'Please enter coupon codes that would be valid for this method. Multiple coupons are supported. Newline/Comma Separated';
-$_['help_category'] = $_['help_product'] =  $_['help_manufacturer_rule'] = $_['help_option'] = $_['help_location_rule'] = '<b>For any ones</b>: Valid for any items.<br /><b>Any of the selected ones</b>: Shopping cart must contain at least one of the selected ones. Other items are not allowed.<br /><b>Any of the selected ones along with others</b>: Shopping cart must contain at least one of the selected ones with  other ones.<b>Must have selected ones</b>: Shopping cart must contain the selected ones. Other ones are not allowed.<br /><b>Must have selected ones along with others</b>: Shopping cart must contain the selected items with others.<br /><b>Except for the selected ones</b>: Shopping cart must not contain any of the selected items. Only non-selected ones are allowed .<br /><b>Except for the selected ones but allowed with others</b>: Shopping cart might have selected items if and only if shopping cart contain at least non-selected items';
+$_['help_category'] = $_['help_product'] =  $_['help_manufacturer_rule'] = $_['help_option'] = $_['help_location_rule'] = '<b>For any ones</b>: Valid for any items.<br /><b>Any of the selected ones</b>: Shopping cart must contain at least one of the selected ones. Other items are not allowed.<br /><b>Any of the selected ones along with others</b>: Shopping cart must contain at least one of the selected ones with  other ones.<b>Must have selected ones</b>: Shopping cart must contain the selected ones. Other ones are not allowed.<br /><b>Must have selected ones along with others</b>: Shopping cart must contain the selected items with others.<br /><b>Except the selected ones</b>: Shopping cart must not contain any of the selected items. Only non-selected ones are allowed .<br /><b>Except the selected ones but allowed with others</b>: Shopping cart might have selected items if and only if shopping cart contain at least non-selected items';
 $_['help_time']       = 'Please set time period for this shipping method. Note: Server time will be considered. Server time now: %s';
 $_['help_date']    = 'If you want to restrict shipping method by date range, please choose applicable dates. Note: Server date will be considered. Server Date: %s';
 $_['help_logo'] = 'Optional field. Only image URL is allowed. This logo will be appeared right before shipping title';
@@ -367,12 +362,12 @@ $_['help_inc_weight']       = 'It will append cart weight to the method name';
 $_['help_exc_vat']    = 'Shipping cost will be displayed without vat/tax in the site';
 $_['help_group']    = 'If you want to make group with other methods, please select the group. You can define group mode in the Global setting tab -> Group Option';
 $_['help_product_or'] = 'Define how would product rules be treated. If you are not sure, just keep default value `AND`';
-$_['help_ingore_product_rule'] = 'If you ticked this option, all  the specified product rules will not be validated to restrict this method, they would rather be used just for shipping cost calculation.';
+$_['help_ingore_product_rule'] = 'If you checked this option, proudct rules will not be validated anymore to restrict this method rather it will be used just for the purpose of shipping cost calculation.';
 $_['help_hide'] = 'Make unavailable other shipping methods on the time of showing itself';
 $_['help_hide_inactive'] = 'Make unavailable other shipping methods on the time of dying itself';
 $_['help_rate_type'] = 'Define how would you want to calculate shipping cost based on what parameter. In case of Equation Value, you must define equation on the equation field below.';
 $_['help_method_specific'] = 'By default X-Shippingpro counts all cart products during calculation but if you chose this option, only applicable products according to the product rules will be counted on.';
-$_['help_rate_percent']       = 'Select the parameter of how the percentage value would be calculated.</i>';
+$_['help_rate_percent']       = 'Select the parameter how percentage would be calculated of. Shipping Cost related items are available in the price adjustment section and equation only.</i>';
 $_['help_price_adjustment']       = 'You can adjust the final price. <br /><b>Min</b>: If final price is less than Min, then Min value will be considered . <br /><b>Max</b>: If final price is greater than Max, then Max value will be counted. <br /><b>Modifier</b>: Any value with an valid operator(+,-,*,/) which will be added/multiplied/subtracted/divided respectively with the shipping price depends on operator. e.g: +5.2 means 5.2 will be added to the final price';
 $_['help_equation']  = 'Any arithmetic equation. If provided, final shipping cost would be adjusted based on result returned by this equation unless `Shipping By` is `Equation Value`. If the equation returned negetive shipping cost, shipping method would be unavailable. Ternary Operation is allowed e.g  {subTotal} > 200 ? 0 : 20';
 $_['help_cart_adjust'] ='If you want to adjust i.e. add/substruct/multiply/divide shopping cart value right before calculation of the shipping cost, enter the value with an arithmetic operator. For example, if you want to add additional 200g packaging weight to the shopping cart weight, enter +200. Or if you want to deduct 200g, you will have to enter -200. Percentage is allowed. e.g +10% <br><br>
@@ -385,8 +380,7 @@ $_['help_heading'] = 'Section heading that would appear before method list durin
 $_['help_tax_class_id']    = 'Select the Tax Class to apply to the amount';
 $_['help_cost'] = 'Percentage is allowed e.g. 10% or 10';
 $_['help_customers'] = 'Select applicable customers for this method';
-$_['help_pro'] = 'Available in Pro Version';
-$_['help_pro_plus'] = 'A lot of features are available in Pro Version';
+
 // Error & Success
 $_['text_success']     = 'Success: You have modified X-Shippingpro!';
 $_['error_permission'] = 'Warning: You do not have permission to modify X-Shippingpro!';

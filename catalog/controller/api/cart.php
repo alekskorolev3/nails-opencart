@@ -140,8 +140,6 @@ class ControllerApiCart extends Controller {
 			// Products
 			$json['products'] = array();
 
-			echo $products
-
 			$products = $this->cart->getProducts();
 
 			foreach ($products as $product) {

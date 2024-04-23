@@ -10,14 +10,13 @@
   </div>
   <div class="basket-cards">
     {% for product in products %}
-
         <div class="basket-card">
           <div class="basket-card-container-img">
             <img src="{{product.thumb}}" alt="{{ product.name }}">
           </div>
           <div class="basket-card-container-main">
             <div class="basket-card-description__category">
-              {{ product.descriptions }}
+              {{ product.description }}
             </div>
             <div class="basket-card-description__title">
               {{ product.name }}

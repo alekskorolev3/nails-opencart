@@ -1,7 +1,5 @@
-<div class="panel panel-default">
-  <div class="panel-heading">{{ heading_customer }}</div>
-  <div class="panel-body">
-    <div class="form-group" style="display: {% if customer_groups|length < 2 %} none {% endif %}">
+  <div class="delivery-form__blockInput">
+    {# <div class="form-group" style="display: {% if customer_groups|length < 2 %} none {% endif %}">
       <label class="control-label">{{ entry_customer_group }}</label>
       {% for customer_group in customer_groups %} 
       {% if (customer_group.customer_group_id == customer_group_id) %} 
@@ -18,43 +16,53 @@
       </div>
       {% endif %} 
       {% endfor %} 
-    </div>
+    </div> #}
 
     {% for field in setting['fields'] %} 
 
-      {% if (field.name == 'firstname') %} 
-        <div class="form-group" id="customer-field-firstname">
-          <label class="control-label" for="customer-input-firstname">{{ entry_firstname }}</label>
-          <input type="text" name="customer_firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="customer-input-firstname" class="form-control" data-validation="{{ field['validation'] }}" />
+      {% if (field.name == 'firstname') %}
+        <div id="customer-field-firstname">
+          <label  for="customer-input-firstname">
+            <span>ФИО</span>
+            <input type="text" name="customer_firstname" id="customer-input-firstname" data-validation="{{ field['validation'] }}">
+          </label>
+          {# <label class="control-label">{{ entry_firstname }}</label> #}
+        </div>
+      {% endif %} 
+
+        {% if (field.name == 'telephone') %}
+      	
+        <div id="customer-field-telephone">
+          <label for="customer-input-telephone">
+            <span>Телефон</span>
+            <input  type="text" name="customer_telephone" id="customer-input-telephone" data-validation="{{ field['validation'] }}">
+          </label>
+          {# <label class="control-label">{{ entry_telephone }}</label> #}
         </div>
          
       {% endif %} 
 
+      {% if (field.name == 'email') %} 
+        
+        <div id="customer-field-email">
+          <label for="customer-input-email">
+            <span>Электронная почта</span>
+            <input type="text" name="customer_email" id="customer-input-email" data-validation="{{ field['validation'] }}">
+          </label>
+          {# <label class="control-label" >{{ entry_email }}</label> #}
+        </div>
+         
+      {% endif %} 
+{# 
       {% if (field.name == 'lastname') %} 
         <div class="form-group" id="customer-field-lastname">
           <label class="control-label" for="customer-input-lastname">{{ entry_lastname }}</label>
           <input type="text" name="customer_lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="customer-input-lastname" class="form-control" data-validation="{{ field['validation'] }}" />
         </div>
          
-      {% endif %} 
+      {% endif %}  #}   
 
-      {% if (field.name == 'email') %} 
-        <div class="form-group" id="customer-field-email">
-          <label class="control-label" for="customer-input-email">{{ entry_email }}</label>
-          <input type="text" name="customer_email" value="{{ email }}" placeholder="{{ entry_email }}" id="customer-input-email" class="form-control" data-validation="{{ field['validation'] }}" />
-        </div>
-         
-      {% endif %} 
-
-      {% if (field.name == 'telephone') %} 
-        <div class="form-group" id="customer-field-telephone">
-          <label class="control-label" for="customer-input-telephone">{{ entry_telephone }}</label>
-          <input type="text" name="customer_telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="customer-input-telephone" class="form-control" data-validation="{{ field['validation'] }}" />
-        </div>
-         
-      {% endif %} 
-
-      {% if (field.name == 'fax') %} 
+      {# {% if (field.name == 'fax') %} 
         <div class="form-group" id="customer-field-fax">
           <label class="control-label" for="customer-input-fax">{{ entry_fax }}</label>
           <input type="text" name="customer_fax" value="{{ fax }}" placeholder="{{ entry_fax }}" id="customer-input-fax" class="form-control" data-validation="{{ field['validation'] }}" />
@@ -76,7 +84,7 @@
           <input type="password" name="customer_confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="customer-input-confirm" class="form-control" data-validation="{{ field['validation'] }}" />
         </div>
          
-      {% endif %} 
+      {% endif %}  #}
 
       {% if field.name|slice(0, 12) == 'custom_field' %} 
 
@@ -182,7 +190,6 @@
     {% endfor %} 
 
   </div>
-</div>
 
 <script><!--
 $('#custom-customer [name^=customer]').on('input', function() {

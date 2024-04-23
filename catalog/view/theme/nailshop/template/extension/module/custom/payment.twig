@@ -1,32 +1,47 @@
-<div class="panel panel-default">
-  <div class="panel-heading">{{ heading_payment }}</div>
-  <div class="panel-body">
-
-    {% if (error_warning) %} 
-    <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
-    {% endif %} 
-
-    {% if (payment_methods) %} 
-    {% for payment_method in payment_methods %} 
-    <div class="radio">
-      <label>
-        {% if (payment_method['code'] == code or not code) %} 
-        {% set code = payment_method['code'] %} 
-        <input type="radio" name="payment_method" value="{{ payment_method['code'] }}" checked="checked" />
-        {% else %} 
-        <input type="radio" name="payment_method" value="{{ payment_method['code'] }}" />
-        {% endif %} 
-        {{ payment_method['title'] }} 
-        {% if (payment_method['terms']) %} 
-        ({{ payment_method['terms'] }})
-        {% endif %} 
-        {% if (payment_method['description'] is defined) %} 
-        <br /><small>{{ payment_method['description'] }}</small>
-        {% endif %} 
+<div class="basket-payment">
+		<div class="basket-payment__title">Оплата</div>
+      <label class="basket-payment-list" for="payment">
+        <ul>
+        
+        {% if (payment_methods) %} 
+          {% for payment_method in payment_methods %} 
+          <li>
+              {% if (payment_method['code'] == code or not code) %} 
+            {% set code = payment_method['code'] %} 
+            <input type="radio" name="payment_method" value="{{ payment_method['code'] }}" checked="checked" />
+            {% else %} 
+            <input type="radio" name="payment_method" value="{{ payment_method['code'] }}" />
+            {% endif %} 
+            <img src="catalog/view/theme/nailshop/assets/img/creditCard.svg" alt="creditCard">
+            <span>{{ payment_method['title'] }}</span>
+          </li>
+          {# <div class="radio">
+            <label>
+           
+              {% if (payment_method['terms']) %} 
+              ({{ payment_method['terms'] }})
+              {% endif %} 
+              {% if (payment_method['description'] is defined) %} 
+              <br /><small>{{ payment_method['description'] }}</small>
+              {% endif %} 
+            </label>
+          </div> #}
+          {% endfor %} 
+        {% endif %}    
+          {# <li>
+          <input type="radio" name="payment" id="">
+          <img src="catalog/view/theme/nailshop/assets/img/sber.svg" alt="sber">
+          <span>SberPay Онлайн оплата на сайте Сбербанка</span>
+          </li>
+          <li>
+          <input type="radio" name="payment" id="">
+          <img src="catalog/view/theme/nailshop/assets/img/spb.svg" alt="span">
+          <span>СПБ оплата по QR коду</span>
+          </li> #}
+        </ul>
       </label>
-    </div>
-    {% endfor %} 
-    {% endif %} 
+
+    
 
     
     <script>
@@ -43,6 +58,4 @@
         });
     </script>
 
-
-  </div>
 </div>

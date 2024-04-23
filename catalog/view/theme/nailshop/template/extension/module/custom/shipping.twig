@@ -1,44 +1,6 @@
-<div class="panel panel-default">
-  <div class="panel-heading">{{ heading_shipping }}</div>
-  <div class="panel-body">
-
-    {% if (error_warning) %} 
-    <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
-    {% endif %} 
-
-    
     {% if (shipping_methods) %} 
 
-      <div id="custom-shipping-methods">
-      {% for shipping_method in shipping_methods %} 
-        <p><strong>{{ shipping_method['title'] }}</strong></p>
-        {% if (not shipping_method['error']) %} 
-          {% for quote in shipping_method['quote'] %} 
-            <div class="radio">
-              <label>
-                {% if (quote['code'] == code or not code) %} 
-                {% set code = quote['code'] %} 
-                <input type="radio" name="shipping_method" value="{{ quote['code'] }}" checked="checked" />
-                {% else %} 
-                <input type="radio" name="shipping_method" value="{{ quote['code'] }}" />
-                {% endif %} 
-                {{ quote['title'] }} - {% if quote['cost'] > 0 %} {{ quote['text'] }} {% else %} {{ text_free }} {% endif %}
-                {% if (quote['description'] is defined) %} 
-                <br /><small>{{ quote['description'] }}</small>
-                {% endif %} 
-              </label>
-            </div>
-          {% endfor %} 
-        {% else %} 
-          <div class="alert alert-danger">{{ shipping_method['error'] }}</div>
-        {% endif %} 
-      {% endfor %} 
-      </div>
-
-      <div id="custom-shipping-address">      
-
-        <hr>
-
+      <div id="custom-shipping-address" class="delivery-form__blockInput">
         {% if (addresses) %} 
           <div class="radio">
             <label>
@@ -68,23 +30,37 @@
         <div id="shipping-new" style="display: {{ addresses ? 'none' : 'block' }};">
 
           {% for field in setting['fields'] %} 
+        
+				
+				
+				
 
             {% if (field['name'] == 'company') %} 
-              <div class="form-group" id="shipping-field-company">
-                <label class="control-label" for="input-shipping-company">{{ entry_company }}</label>
-                <input type="text" name="company" value="{{ company }}" placeholder="{{ entry_company }}" id="input-shipping-company" class="form-control" />
+              <div id="shipping-field-company">
+                <label for="input-shipping-company">
+                  <span>Выбрать ТК</span>
+                  <select name="company" id="input-shipping-company">
+                    <option value="СДЕК" selected>СДЕК</option>
+                    <option value="rfr" selected>rfr</option>
+                  </select>
+                </label>
+                {# <label class="control-label" >{{ entry_company }}</label> #}
               </div>
                
             {% endif %} 
 
             {% if (field['name'] == 'address_1') %} 
-              <div class="form-group" id="shipping-field-address-1">
-                <label class="control-label" for="input-shipping-address-1">{{ entry_address_1 }}</label>
-                <input type="text" name="address_1" value="{{ address_1 }}" placeholder="{{ entry_address_1 }}" id="input-shipping-address-1" class="form-control" />
+               
+              <div id="shipping-field-address-1">
+                <label for="input-shipping-address-1">
+                  <span>Город улица, дом</span>
+                  <input type="text" name="address_1" id="input-shipping-address-1">
+                </label>
+                {# <label class="control-label" >{{ entry_address_1 }}</label> #}
               </div>
             {% endif %} 
 
-            {% if (field['name'] == 'address_2') %} 
+            {# {% if (field['name'] == 'address_2') %} 
               <div class="form-group" id="shipping-field-address-2">
                 <label class="control-label" for="input-shipping-address-2">{{ entry_address_2 }}</label>
                 <input type="text" name="address_2" value="{{ address_2 }}" placeholder="{{ entry_address_2 }}" id="input-shipping-address-2" class="form-control" />
@@ -96,15 +72,19 @@
                 <label class="control-label" for="input-shipping-city">{{ entry_city }}</label>
                 <input type="text" name="city" value="{{ city }}" placeholder="{{ entry_city }}" id="input-shipping-city" class="form-control" />
               </div>
-            {% endif %} 
+            {% endif %}  #}
 
             {% if (field['name'] == 'postcode') %} 
-              <div class="form-group" id="shipping-field-postcode">
-                <label class="control-label" for="input-shipping-postcode">{{ entry_postcode }}</label>
-                <input type="text" name="postcode" value="{{ postcode }}" placeholder="{{ entry_postcode }}" id="input-shipping-postcode" class="form-control" />
+        
+              <div id="shipping-field-postcode">
+                <label for="input-shipping-postcode">
+                  <span>Квартира</span>
+                  <input type="text" name="postcode"  id="input-shipping-postcode">
+                </label>
+                {# <label class="control-label" >{{ entry_postcode }}</label> #}
               </div>
             {% endif %} 
-
+{# 
             {% if (field['name'] == 'country_id') %} 
               <div class="form-group" id="shipping-field-country-id">
                 <label class="control-label" for="input-shipping-country-id">{{ entry_country }}</label>
@@ -119,14 +99,14 @@
                   {% endfor %} 
                 </select>
               </div>
-            {% endif %} 
+            {% endif %}  #}
 
-            {% if (field['name'] == 'zone_id') %} 
+            {# {% if (field['name'] == 'zone_id') %} 
               <div class="form-group" id="shipping-field-zone-id">
                 <label class="control-label" for="input-shipping-zone-id">{{ entry_zone }}</label>
                 <select name="zone_id" id="input-shipping-zone" class="form-control"></select>
               </div>
-            {% endif %} 
+            {% endif %}  #}
 
             {% if (field['name']|slice(0, 12) == 'custom_field') %} 
 
@@ -240,9 +220,38 @@
         </div>
       </div>
 
+      <div id="custom-shipping-methods" class="delivery-form__blockRadio">
+      {% for shipping_method in shipping_methods %} 
+     
+        
+        {% if (not shipping_method['error']) %} 
+          {% for quote in shipping_method['quote'] %} 
+              <label class="labelRadio">
+                {% if (quote['code'] == code or not code) %} 
+                {% set code = quote['code'] %} 
+                <input type="radio" name="shipping_method" value="{{ quote['code'] }}" checked="checked" />
+                {% else %} 
+                <input type="radio" name="shipping_method" value="{{ quote['code'] }}" />
+                {% endif %} 
+                <div>
+                    <span>{{ quote['title'] }}</span>
+                    <span>
+                    {% if (quote['description'] is defined) %} 
+                      {{ quote['description'] }}
+                      
+                    {% endif %}
+                    бесплатно, при заказе от 3000 руб.
+                    </span>
+                </div>
+              </label>
+          {% endfor %} 
+        {% else %} 
+          <div class="alert alert-danger">{{ shipping_method['error'] }}</div>
+        {% endif %} 
+      {% endfor %} 
+      </div>
+
     {% endif %} 
-  </div>
-</div>
 
 <script><!--
 $('#custom-shipping [name^=shipping]').on('input', function() {

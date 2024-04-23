@@ -1,35 +1,9 @@
-/* v 1.1.3 */
 #ocm-container {
     border: 1px solid #ddd;
     padding: 15px;
 }
 div[ocm-attr] {
     display: none;
-}
-.ocm-full {
-    width: 100% !important;
-}
-.ocm-placeholder {
-    outline: none;
-    border: 1px solid #ccc;
-    margin-bottom: 5px;
-    outline: 0;
-    padding: 5px;
-    width: 120px;
-}
-.ocm-title {
-    background: #f9f9f9;
-    padding: 6px 0px 6px 10px;
-    font-size: 15px;
-    border-bottom: 1px solid #e2e2e2;
-}
-.ocm-loader {
-    font-size: 25px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-top: -12px;
-    margin-left: -12px;
 }
 .ocm-hide {
     display: none;
@@ -58,8 +32,6 @@ div[ocm-attr] {
 .ocm-checkgroup-option {
     text-align: right;
     margin-top: 5px;
-    border-top: 1px solid #efebeb;
-    padding-top: 10px;
 }
 .ocm-checkgroup-option a {
     margin-right: 10px;
@@ -99,14 +71,7 @@ div[ocm-attr] {
     margin-top: 30px;
     font-size: 15px;
 }
-.ocm-id {
-    padding: 5px 0;
-    font-weight: bold;
-}
-.ocm-row-move {
-    cursor: move;
-}
-a.ocm-check-uncheck, a.ocm-remove-all, a.ocm-check-selected, a.ocm-browser {
+a.ocm-check-uncheck, a.ocm-remove-all, a.ocm-browser {
     background: #909090;
     padding: 2px 6px;
     color: #fff;
@@ -114,50 +79,8 @@ a.ocm-check-uncheck, a.ocm-remove-all, a.ocm-check-selected, a.ocm-browser {
     text-decoration: none;
     margin-left: 5px;
 }
-a.ocm-check-selected.selected-on {
-    background: #ff9800;
-}
 a.ocm-check-uncheck:hover, a.ocm-remove-all:hover, a.ocm-browser:hover {
     background: #03A9F4;
-}
-label.ocm-exclusiveness {
-    margin-right: 10px;
-    font-weight: bold;
-}
-label.ocm-exclusiveness input {
-    display: none !important;
-}
-label.ocm-exclusiveness span {
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 5px;
-    font-weight: normal;
-    text-decoration: none;
-    margin-left: 5px;
-}
-span.ocm-exclusive {
-    background: red;
-    display: none;
-}
-span.ocm-inclusive {
-    background: green;
-}
-input.ocm-exclusiveness-checkbox:checked + .ocm-inclusive {
-    display: none;
-}
-input.ocm-exclusiveness-checkbox:checked + .ocm-inclusive + .ocm-exclusive {
-    display: inline-block;
-}
-/* config table */
-.ocm-global-table {
-    margin: 10px 0px;
-}
-.ocm-global-table thead td i {
-    font-weight: normal;
-    display: block;
-}
-.ocm-global-table select {
-   width: 100px;
 }
 /* OCM Modal*/
 .ocm-modal-content {
@@ -185,7 +108,6 @@ input.ocm-exclusiveness-checkbox:checked + .ocm-inclusive + .ocm-exclusive {
     display: inline-block;
     text-align: left;
     vertical-align: middle;
-    max-width: 96%;
 }
 /* OCM Browser */
 .ocm-browser-filter {
@@ -213,16 +135,13 @@ input.ocm-exclusiveness-checkbox:checked + .ocm-inclusive + .ocm-exclusive {
 .ocm-browser-btn i{
    display: none;
 }
-.ocm-browser-content table {
-    font-size: 100%;
-}
 .ocm-import {
     width: 65%;
     margin-right: 5px;
     float: left;
 }
 input.ocm-file[type="file"] {
-    display: none !important;
+    display: none;
 }
 .ocm-full-row {
    flex-direction: column;
@@ -236,17 +155,12 @@ input.ocm-file[type="file"] {
 }
 div.ocm-method {
     position: relative;
-    min-height: 200px;
 }
 .ocm-range-container {
     margin: 20px 0px;
     background: #fcfcfc;
     padding: 15px;
     border: 1px solid #c7c7c7;
-}
-.ocm-range-container thead td i {
-    font-weight: normal;
-    display: block;
 }
 .ocm-range-option {
     text-align: right;
@@ -269,76 +183,54 @@ button.add-new {
     margin-top: 10px;
 }
 /* Left Method list */
-#ocm-method-list {
-    overflow: hidden auto;
-    padding-right: 4px;
-    margin-bottom: 5px;
-    scrollbar-width: thin;
-}
-#ocm-method-list::-webkit-scrollbar {
-    width: 8px;
-    background-color: rgba(241,241,241, 0.5);
-}
-#ocm-method-list::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(234,232,232, 0.7);
-}
-#ocm-method-list > li {
+#method-list > li {
     position: relative;
 }
-#ocm-method-list > li > a.global{
+#method-list > li > a.global{
   text-transform: uppercase;
   background-color: #c7c7c7;
   color: #555;
   font-weight: bold;
 }
-#ocm-method-list > li > a {
+#method-list > li > a {
     background-color: #f7f7f7;
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
     margin-bottom: 2px;
     border-right:1px solid #ccc;
-    padding: 10px 15px;
 }
-#ocm-method-list > li.active > a,
-#ocm-method-list > li > a:hover,
-#ocm-method-list > li > a.active,
-#ocm-method-list > li > a:hover {
+#method-list > li.active > a,
+#method-list > li > a:hover,
+#method-list > li > a.active,
+#method-list > li > a:hover {
   background-color: #1e91cf;
   color: #fff;
 }
-#ocm-method-list > li.active a.global,
-#ocm-method-list > li a.active.global {
+#method-list > li.active a.global,
+#method-list > li a.active.global {
   background-color: #FF5722 !important;
 }
-#ocm-method-list i {
+#method-list i {
   position: absolute;
   right: 8px;
-  top: 15px;
+  top: 12px;
   cursor: move;
   display: none;
   color: #f1f1f1;
-  font-size: 10px;
 }
-#ocm-method-list li:hover i {
+#method-list li:hover i {
   display: inline-block;
-}
-.ocm-common-lang {
-    margin-bottom: 20px;
-}
-ul[class*="method-tab"] {
-    margin-top: 15px;
 }
 /* End of method list*/
 input.display {width: 300px;}
-.ocm-action-btn {
+.action-btn {
     position: absolute;
     right: 0;
     top: -5px;
     z-index: 10;
 }
-.ocm-action-btn button {
-    margin-left: 2px;
+.action-btn button {
+    margin-left: 5px;
 }
 
 .dropable {
@@ -368,80 +260,9 @@ div.tooltip div.tooltip-inner b{
     border-radius:5px;
     padding-top:5px;
 }
-.tooltip-inner {
-    max-width: 300px;
-}
-/* OC 4.x autocomplete hidden isue*/
-.form-group {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-bottom: 0;
-}
-.table thead td span[data-toggle="tooltip"]:after, label.control-label span:after {
-    font-family: FontAwesome;
-    color: #1E91CF;
-    content: "\f059";
-    margin-left: 4px;
-}
-td.text-right {
-    text-align: right !important;
-}
-#autocomplete-loading {
-    display: none;
-}
-/* end of oc 4.x */
-/* debug */
-div#ocm-debug {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    width: 300px;
-    height: 400px;
-    background: #ffffff;
-    border-left: 2px solid #ebebeb;
-    border-top: 2px solid #ebebeb;
-    border-radius: 5px;
-    z-index: 100;
-}
-div#ocm-debug-header {
-    padding: 10px 10px;
-    background: #ff5722;
-    color: #fff;
-    font-size: 15px;
-    position: relative;
-}
-div#ocm-debug-close {
-    position: absolute;
-    right: 10px;
-    top: 0px;
-    font-size: 28px;
-    cursor: pointer;
-}
-div#ocm-debug-content {
-    padding: 15px;
-    height: 100%;
-    overflow: auto;
-}
-div#ocm-debug-content blockquote b {
-    font-weight: normal;
-    font-size: 14px;
-}
-
-div#ocm-debug-content blockquote {
-    border-bottom: 1px dashed #ccc;
-    padding: 10px 0px;
-}
-/* end of debug */
-
 /* joocart design issue */
 @media (min-width: 768px) {
    .body-oc .col-sm-9 {
        width: 72% !important;
-    }
-}
-/* Small devices */
-@media only screen and (max-width: 768px) {
-    .ocm-modal {
-        top: auto;
     }
 }

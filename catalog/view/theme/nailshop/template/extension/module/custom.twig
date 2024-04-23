@@ -2,105 +2,128 @@
 <main class="main">
 <div class="basket">
 	<div class="basket-leftside">
-	<div class="basket-title">
-		<h2>Корзина</h2>
-	</div>
-	{% if cart %}
-		<div id="custom-cart">
-			{{ cart }}
+		<div class="basket-title">
+			<h2>Корзина</h2>
 		</div>
-	{% endif %}
-	{% if module %}
-		<div id="custom-module">{{ module }}</div>
-	{% endif %}
-	<div class="basket-delivery">
-		<div class="basket-delivery__title">Доставка</div>
-		<div class="basket-delivery__subitle">Для доставки по России и странам СНГ, заполните форму ниже</div>
-		<from action="" class="basket-delivery-form">
-		<div class="delivery-form__blockInput">
-			<label for="fio">
-			<span>ФИО</span>
-			<input id='fio' name="fio" type="text">
-			</label>
-			<label for="address">
-			<span>Город улица, дом</span>
-			<input id="address" name="address" type="text">
-			</label>
-			<div>
-			<label for="home">
-				<span>Квартира</span>
-				<input id="home" name="home" type="text">
-			</label>
-			<label for="phone">
-				<span>Телефон</span>
-				<input id="phone" name="phone" type="text">
-			</label>
+		{% if cart %}
+			<div id="custom-cart">
+				{{ cart }}
 			</div>
-			<div>
-			<label for="tk">
-				<span>Выбрать ТК</span>
-				<select name="tk" id="tk">
-				<option value="СДЕК" selected>СДЕК</option>
-				</select>
-			</label>
-			<label for="email">
-				<span>Электронная почта</span>
-				<input name="email" id="email" type="email" required>
+		{% endif %}
+		{% if module %}
+			<div id="custom-module">{{ module }}</div>
+		{% endif %}
 
-			</label>
-			</div>
+
+
+		<div class="basket-delivery">
+			<div class="basket-delivery__title">Доставка</div>
+			<div class="basket-delivery__subitle">Для доставки по России и странам СНГ, заполните форму ниже</div>
+			<from class="basket-delivery-form">
+				{% if customer and not logged %} 
+					<div id="custom-customer">{{ customer }}</div>
+				{% endif %}
+				{% if shipping and shipping != constant('false') %} 
+					<div id="custom-shipping">{{ shipping }}</div>
+				{% endif %} 
+				<div class="basket-delivery-form__addone">
+					<span>Для доставки в дальнее зарубежье, либо по иным вопросам, пожалуйста, свяжитесь с нами</span>
+					<span class="basket__phoneContainer">
+					<img src="catalog/view/theme/nailshop/assets/img/white-hone.svg" alt="phone">
+					</span>
+				</div>
+				<button>Подтвердить данные</button>
+			</from>
 		</div>
-		<div class="delivery-form__blockRadio">
-			<label class="labelRadio" for="deliveryChoose">
-			<input type="radio" name="deliveryChoose" id="point">
-			<div>
-				<span>Доставка до пункта выдачи, только по России и странам СНГ </span>
-				<span>мы доставим в ближайший пункт выдачи к указанному адресу, бесплатно, при заказе от 3000
-				руб.</span>
-			</div>
-			</label>
-			<label class="labelRadio" for="door">
-			<input type="radio" name="deliveryChoose" id="door" checked>
-			<div>
-				<span>Доставка до двери, только по России и странам СНГ </span>
-				<span>бесплатно, при заказе от 3000 руб.</span>
-			</div>
-			</label>
+
+		{% if payment %} 
+			<div id="custom-payment">{{ payment }}</div>
+		{% endif %}	
+
+								
+	
+
+		<div id="custom-confirm" style="display: none;"></div>
+	</div>
+	<div class="basket-rightside">
+		<span class="reaction"></span>
+		<div id="custom-total">
+			{{ total }}
 		</div>
-		<div class="basket-delivery-form__addone">
-			<span>Для доставки в дальнее зарубежье, либо по иным вопросам, пожалуйста, свяжитесь с нами</span>
-			<span class="basket__phoneContainer">
-			<img src="catalog/view/theme/nailshop/assets/img/white-hone.svg" alt="phone">
+		{% if payment %} 
+		<div class="basket-rightside-button" id="custom-control">
+
+		
+			{# checked #}
+			<span style="display: none">
+				{% if text_agree %} 
+					<input type="checkbox" name="agree" value="1" checked="checked"  />
+					&nbsp;
+					<label for="input-agree" class="control-label">{{ text_agree }}</label>
+					<br>
+				{% endif %}
 			</span>
+			{# checked #}
+
+
+			<button type="button" id="button-custom-order">
+				<span>Оплатить</span><img src="catalog/view/theme/nailshop/assets/img/creditCard-white.svg" alt="payment">
+			</button>
 		</div>
-		<button type="submit">Подтвердить данные</button>
-		</from>
-	</div>
-	<div class="basket-payment">
-		<div class="basket-payment__title">Оплата</div>
-		<label class="basket-payment-list" for="payment">
-		<ul>
-			<li>
-			<input type="radio" name="payment" id="" checked>
-			<img src="catalog/view/theme/nailshop/assets/img/creditCard.svg" alt="creditCard">
-			<span>Онлайн оплата банковской картой на сайте</span>
-			</li>
-			<li>
-			<input type="radio" name="payment" id="">
-			<img src="catalog/view/theme/nailshop/assets/img/sber.svg" alt="sber">
-			<span>SberPay Онлайн оплата на сайте Сбербанка</span>
-			</li>
-			<li>
-			<input type="radio" name="payment" id="">
-			<img src="catalog/view/theme/nailshop/assets/img/spb.svg" alt="span">
-			<span>СПБ оплата по QR коду</span>
-			</li>
-		</ul>
-		</label>
+		{% endif %}
 	</div>
 	</div>
-	{% if total %} 
-		<div id="custom-total">{{ total }}</div>
-	{% endif %} 
 </main>
+<script>
+$(document).ready(function() {
+
+  $('#button-custom-order').on('click', function(){
+
+  	{% if (not logged) %} 
+
+			checkoutCustomer()
+				{% if (login is defined and login != constant('false')) %} 
+					.then( checkoutLogin )
+				{% endif %} 
+				{% if (shipping is defined and shipping != constant('false')) %} 
+					.then( checkoutShipping )
+				{% endif %} 
+					.then( checkoutPayment )
+				{% if (comment is defined and comment != constant('false')) %} 
+					.then( checkoutComment )
+				{% endif %} 
+					.then( checkoutConfirm )
+					.catch( failureCallback );
+
+  	{% else %} 
+
+  		{% if (shipping is defined and shipping != constant('false')) %} 
+
+  			checkoutShipping()
+  				.then( checkoutPayment )
+  				{% if (comment is defined and comment != constant('false')) %} 
+					.then( checkoutComment )
+				{% endif %} 
+				.then( checkoutConfirm )
+				.catch( failureCallback );
+
+  		{% else %} 
+
+  			checkoutPayment()
+  				{% if (comment is defined and comment != constant('false')) %} 
+						.then( checkoutComment )
+					{% endif %} 
+					.then( checkoutConfirm )
+					.catch( ailureCallback );
+
+
+  		{% endif %}	
+
+  	{% endif %} 
+
+  });
+
+});
+  
+</script>
 {{ footer }} 

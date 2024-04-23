@@ -1,3 +1,8 @@
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+
 .basket {
     display: flex;
     gap: 45px;
@@ -271,7 +276,7 @@
 .delivery-form__blockInput {
     max-width: 531px;
     width: 100%;
-    margin-bottom: 45px;
+    /* margin-bottom: 45px; */
 }
 
 .delivery-form__blockInput label {
@@ -296,13 +301,13 @@
 }
 
 .delivery-form__blockInput > div:first-of-type > label:first-child{
-    max-width: 83px;
-    margin-right: 35px;
+    /* max-width: 83px;
+    margin-right: 35px; */
 }
 
 .delivery-form__blockInput > div:last-of-type > label:first-child{
-    max-width: 92px;
-    margin-right: 25px;
+    /* max-width: 92px;
+    margin-right: 25px; */
 }
 
 .delivery-form__blockInput > div > label:last-child {
@@ -490,7 +495,8 @@
 .basket-rightside {
     max-width: 410px;
     width: 100%;
-    height: 415px;
+    height: fit-content;
+    max-height: fit-content;
     padding: 53px 23px 68px;
     border-radius: 7px;
     background-color: #fff;
@@ -549,7 +555,9 @@
 }
 
 .basket-rightside-button {
-    order: 8;
+    margin-top: 47.05px;
+    display: flex;
+    justify-content: center;
 }
 
 .basket-rightside__payment span{
@@ -585,7 +593,7 @@
 }
 
 .basket-rightside-button {
-    margin: 0 auto;
+    margin: 47..05px auto 0;
 }
 
 .basket-rightside-button button{
@@ -752,7 +760,7 @@
         min-width: 248px;
         border-radius: 15px;
         padding: 25px 10.58px 44.14px 11px;
-        height: 264px;
+        height: fit-content;
     }
 
     .basket-rightside__payment {
